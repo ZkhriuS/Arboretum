@@ -28,10 +28,9 @@ public class BonusTile : Tile
         {
             if (other.tag.Equals("Tile") && !bonusTile.isGrounded && !other.isTrigger)
             {
-                gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
                 if (!CheckTiles(bonusTile, gameObject.GetComponent<Tile>()))
                 {
-                    gameObject.GetComponent<Renderer>().material.SetColor(Shader.PropertyToID("_EmissionColor"), error);
+                    gameObject.GetComponent<SpriteRenderer>().color = error;
                     TileHolder holder = bonusTile.GetComponentInParent<TileHolder>();
                     if (holder)
                     {
@@ -40,7 +39,7 @@ public class BonusTile : Tile
                 }
                 else
                 {
-                    gameObject.GetComponent<Renderer>().material.SetColor(Shader.PropertyToID("_EmissionColor"), correct);
+                    gameObject.GetComponent<SpriteRenderer>().color = correct;
                     TileHolder holder = bonusTile.GetComponentInParent<TileHolder>();
                     if (holder)
                     {
@@ -65,9 +64,11 @@ public class BonusTile : Tile
         Tile bonusTile = other.GetComponentInChildren<BonusTile>();
         if (bonusTile != null)
         {
-            gameObject.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             if (!CheckTiles(bonusTile, gameObject.GetComponent<BonusTile>()))
-                gameObject.GetComponent<Renderer>().material.SetColor(Shader.PropertyToID("_EmissionColor"), correct);
+            {
+                
+            }
         }
     }
 
