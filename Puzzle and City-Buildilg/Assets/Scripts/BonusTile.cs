@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Edited;
 using UnityEngine;
 
 public class BonusTile : Tile
@@ -31,10 +32,20 @@ public class BonusTile : Tile
                 if (!CheckTiles(bonusTile, gameObject.GetComponent<Tile>()))
                 {
                     gameObject.GetComponent<Renderer>().material.SetColor(Shader.PropertyToID("_EmissionColor"), error);
+                    TileHolder holder = bonusTile.GetComponentInParent<TileHolder>();
+                    if (holder)
+                    {
+                        holder.SetTriggeredBonusTile(null);
+                    }
                 }
                 else
                 {
                     gameObject.GetComponent<Renderer>().material.SetColor(Shader.PropertyToID("_EmissionColor"), correct);
+                    TileHolder holder = bonusTile.GetComponentInParent<TileHolder>();
+                    if (holder)
+                    {
+                        holder.SetTriggeredBonusTile(gameObject);
+                    }
                 }
             }
         }
@@ -43,7 +54,6 @@ public class BonusTile : Tile
     public void SetBaseTile()
     {
         Tile baseTile = gameObject.GetComponent<BonusTile>();
-        Debug.Log(baseTile);
         if (baseTile)
         {
             SetNewTile(baseTile.gameObject);

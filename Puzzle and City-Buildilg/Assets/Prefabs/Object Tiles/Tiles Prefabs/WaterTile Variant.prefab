@@ -145,8 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 1
-  groundTile: {fileID: 6398189713374727025, guid: f0759ca79668a4f4b95e6a85d80d8289, type: 3}
-  scoreTextPrefab: {fileID: 4894337714451480726, guid: 61eaf4c9c8d01c24f8086ce5c9114d9b, type: 3}
+  groundTile: {fileID: 4692091254597264411, guid: 85108a810e7610047bf51a63a45070ce, type: 3}
+  scoreTextPrefab: {fileID: 4894337714451480726, guid: 66fcf06c890a117459e1a7b6e5948e86, type: 3}
   chain: []
 --- !u!114 &2515375964511917549
 MonoBehaviour:
