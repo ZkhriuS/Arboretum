@@ -30,14 +30,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9180476996855989488}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.21, y: 0.18, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &9180476996855989492
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9180476996855989488}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f1796633d3ef7743a976099b228c99c, type: 3}
   m_Name: 
@@ -139,14 +139,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9180476996855989488}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b572fc3a48b20144aaf246abfc721c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   score: 1
-  groundTile: {fileID: 6398189713374727025, guid: f0759ca79668a4f4b95e6a85d80d8289, type: 3}
-  scoreTextPrefab: {fileID: 4894337714451480726, guid: 61eaf4c9c8d01c24f8086ce5c9114d9b, type: 3}
+  groundTile: {fileID: 4692091254597264411, guid: 85108a810e7610047bf51a63a45070ce, type: 3}
+  scoreTextPrefab: {fileID: 4894337714451480726, guid: 66fcf06c890a117459e1a7b6e5948e86, type: 3}
   chain: []
 --- !u!114 &5874797770762829976
 MonoBehaviour:
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9180476996855989488}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae0960013de6c514dbd1ac511851da1d, type: 3}
   m_Name: 

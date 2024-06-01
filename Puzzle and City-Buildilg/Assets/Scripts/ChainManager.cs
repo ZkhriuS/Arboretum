@@ -13,6 +13,8 @@ public class ChainManager : MonoBehaviour
     TextMeshProUGUI text;
     [SerializeField]
     private Sprite[] sprites;
+
+    [SerializeField] private TileGenerator generator;
     private ChainController chainController;
     public GameObject[] resourcePanels;
     public GameObject currentResourcePanel;
@@ -27,7 +29,7 @@ public class ChainManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameObject.GetComponent<TileGenerator>().IsOtherActionBlocked() && !isInfoOpen)
+        if (!generator.IsOtherActionBlocked() && !isInfoOpen)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -50,7 +52,7 @@ public class ChainManager : MonoBehaviour
 
     private void Info()
     {
-        text.text = "Вы получите " + chainController.score + "    \t.\nЗамкнуть цепочку?";
+        text.text = "Р’С‹ РїРѕР»СѓС‡РёС‚Рµ " + chainController.score + "    \t.\nР—Р°РјРєРЅСѓС‚СЊ С†РµРїРѕС‡РєСѓ?";
         Image image = text.GetComponentInChildren<Image>();
         switch (chainController.GetChainType())
         {
