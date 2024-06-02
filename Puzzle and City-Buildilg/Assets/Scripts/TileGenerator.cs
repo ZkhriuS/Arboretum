@@ -14,6 +14,7 @@ public class TileGenerator : MonoBehaviour
     [SerializeField] private GameObject rotationIndicatorChild;
     private GameObject newTile;
     private GameObject childTile;
+    private Neighbours startAngleNeighbours;
     public static event Action<int> TilePeopleArrived;
     [SerializeField] private int minPeople;
 
@@ -27,6 +28,7 @@ public class TileGenerator : MonoBehaviour
         rotationIndicatorParent.transform.position = grid.CellToWorld(new Vector3Int(0, 0));
         rotationIndicatorChild.transform.position = grid.CellToWorld(new Vector3Int(0, 1));
         rotationIndicatorChild.transform.parent = rotationIndicatorParent.transform;
+        startAngleNeighbours = Neighbours.UP_LEFT;
     }
 
     // Update is called once per frame
@@ -72,9 +74,11 @@ public class TileGenerator : MonoBehaviour
         }
 
         Tile bonusTile = childTile.gameObject.GetComponent<Tile>();
-        bonusTile.gameObject.GetComponent<NeighbourController>().SetNeigbour((int) Neighbours.DOWN_RIGHT,
+        bonusTile.gameObject.GetComponent<NeighbourController>().SetNeigbour(
+            bonusTile.GetOppositeIndex(startAngleNeighbours),
             newTile.gameObject.GetComponent<ResourceTile>());
-        newTile.gameObject.GetComponent<NeighbourController>().SetNeigbour((int) Neighbours.UP_LEFT, bonusTile);
+        newTile.gameObject.GetComponent<NeighbourController>().SetNeigbour((int) startAngleNeighbours, bonusTile);
+        Debug.Log(startAngleNeighbours);
     }
 
     public void LeftRotate()
@@ -83,160 +87,210 @@ public class TileGenerator : MonoBehaviour
         NeighbourController bonusNeighbourC = bonusTile.gameObject.GetComponent<NeighbourController>();
         if (bonusTile)
         {
-            rotationIndicatorParent.transform.Rotate(new Vector3(0, 0, -60));
-                Vector3 localPosition = rotationIndicatorChild.transform.localPosition;
-                Vector3Int cellPosition = grid.LocalToCell(localPosition);
-                localPosition = grid.CellToLocal(new Vector3Int(cellPosition.x, cellPosition.y));
-                rotationIndicatorChild.transform.localPosition = new Vector3(localPosition.x, localPosition.y,
-                    rotationIndicatorParent.transform.position.z);
-                for (int i = 0; i < 6; i++)
+            rotationIndicatorParent.transform.Rotate(new Vector3(0, 0, 60));
+            Vector3 localPosition = rotationIndicatorChild.transform.localPosition;
+            Vector3Int cellPosition = grid.LocalToCell(localPosition);
+            localPosition = grid.CellToLocal(new Vector3Int(cellPosition.x, cellPosition.y));
+            rotationIndicatorChild.transform.localPosition = new Vector3(localPosition.x, localPosition.y,
+                rotationIndicatorParent.transform.position.z);
+            for (int i = 0; i < 6; i++)
+            {
+                newTile.gameObject.GetComponent<NeighbourController>().SetNeigbour(i, null);
+                if (bonusNeighbourC.neighboursFree[i])
                 {
-                    newTile.gameObject.GetComponent<NeighbourController>().SetNeigbour(i, null);
-                    if (bonusNeighbourC.neighboursFree[i])
+                    bonusNeighbourC.neighboursFree[i] = null;
+                    Neighbours index = (Neighbours) i;
+                    RotateStartAngle(startAngleNeighbours, false);
+                    switch (index)
                     {
-                        bonusNeighbourC.neighboursFree[i] = null;
-                        Neighbours index = (Neighbours) i;
-                        switch (index)
+                        case Neighbours.UP_LEFT:
                         {
-                            case Neighbours.UP_LEFT:
-                            {
-                                newTile.gameObject.GetComponent<NeighbourController>()
-                                    .SetNeigbour((int) Neighbours.DOWN_RIGHT, null);
-                                bonusNeighbourC.SetNeigbour((int) Neighbours.DOWN_LEFT,
-                                    newTile.gameObject.GetComponent<ResourceTile>());
-                                newTile.gameObject.GetComponent<NeighbourController>()
-                                    .SetNeigbour((int) Neighbours.UP_RIGHT, bonusTile);
-                            }
-                                break;
-                            case Neighbours.UP_CENTER:
-                            {
-                                newTile.gameObject.GetComponent<NeighbourController>()
-                                    .SetNeigbour((int) Neighbours.DOWN_CENTER, null);
-                                bonusNeighbourC.SetNeigbour((int) Neighbours.UP_LEFT,
-                                    newTile.gameObject.GetComponent<ResourceTile>());
-                                newTile.gameObject.GetComponent<NeighbourController>()
-                                    .SetNeigbour((int) Neighbours.DOWN_RIGHT, bonusTile);
-                            }
-                                break;
-                            case Neighbours.UP_RIGHT:
-                            {
-                                newTile.gameObject.GetComponent<NeighbourController>()
-                                    .SetNeigbour((int) Neighbours.DOWN_LEFT, null);
-                                bonusNeighbourC.SetNeigbour((int) Neighbours.UP_CENTER,
-                                    newTile.gameObject.GetComponent<ResourceTile>());
-                                newTile.gameObject.GetComponent<NeighbourController>()
-                                    .SetNeigbour((int) Neighbours.DOWN_CENTER, bonusTile);
-                            }
-                                break;
-                            case Neighbours.DOWN_LEFT:
-                            {
-                                newTile.gameObject.GetComponent<NeighbourController>()
-                                    .SetNeigbour((int) Neighbours.UP_RIGHT, null);
-                                bonusNeighbourC.SetNeigbour((int) Neighbours.DOWN_CENTER,
-                                    newTile.gameObject.GetComponent<ResourceTile>());
-                                newTile.gameObject.GetComponent<NeighbourController>()
-                                    .SetNeigbour((int) Neighbours.UP_CENTER, bonusTile);
-                            }
-                                break;
-                            case Neighbours.DOWN_CENTER:
-                            {
-                                newTile.gameObject.GetComponent<NeighbourController>()
-                                    .SetNeigbour((int) Neighbours.UP_CENTER, null);
-                                bonusNeighbourC.SetNeigbour((int) Neighbours.DOWN_RIGHT,
-                                    newTile.gameObject.GetComponent<ResourceTile>());
-                                newTile.gameObject.GetComponent<NeighbourController>()
-                                    .SetNeigbour((int) Neighbours.UP_LEFT, bonusTile);
-                            }
-                                break;
-                            case Neighbours.DOWN_RIGHT:
-                            {
-                                newTile.gameObject.GetComponent<NeighbourController>()
-                                    .SetNeigbour((int) Neighbours.UP_LEFT, null);
-                                bonusNeighbourC.SetNeigbour((int) Neighbours.UP_RIGHT,
-                                    newTile.gameObject.GetComponent<ResourceTile>());
-                                newTile.gameObject.GetComponent<NeighbourController>()
-                                    .SetNeigbour((int) Neighbours.DOWN_LEFT, bonusTile);
-                            }
-                                break;
+                            newTile.gameObject.GetComponent<NeighbourController>()
+                                .SetNeigbour((int) Neighbours.DOWN_RIGHT, null);
+                            bonusNeighbourC.SetNeigbour((int) Neighbours.DOWN_LEFT,
+                                newTile.gameObject.GetComponent<ResourceTile>());
+                            newTile.gameObject.GetComponent<NeighbourController>()
+                                .SetNeigbour((int) Neighbours.UP_RIGHT, bonusTile);
                         }
-
-                        i = 6;
+                            break;
+                        case Neighbours.UP_CENTER:
+                        {
+                            newTile.gameObject.GetComponent<NeighbourController>()
+                                .SetNeigbour((int) Neighbours.DOWN_CENTER, null);
+                            bonusNeighbourC.SetNeigbour((int) Neighbours.UP_LEFT,
+                                newTile.gameObject.GetComponent<ResourceTile>());
+                            newTile.gameObject.GetComponent<NeighbourController>()
+                                .SetNeigbour((int) Neighbours.DOWN_RIGHT, bonusTile);
+                        }
+                            break;
+                        case Neighbours.UP_RIGHT:
+                        {
+                            newTile.gameObject.GetComponent<NeighbourController>()
+                                .SetNeigbour((int) Neighbours.DOWN_LEFT, null);
+                            bonusNeighbourC.SetNeigbour((int) Neighbours.UP_CENTER,
+                                newTile.gameObject.GetComponent<ResourceTile>());
+                            newTile.gameObject.GetComponent<NeighbourController>()
+                                .SetNeigbour((int) Neighbours.DOWN_CENTER, bonusTile);
+                        }
+                            break;
+                        case Neighbours.DOWN_LEFT:
+                        {
+                            newTile.gameObject.GetComponent<NeighbourController>()
+                                .SetNeigbour((int) Neighbours.UP_RIGHT, null);
+                            bonusNeighbourC.SetNeigbour((int) Neighbours.DOWN_CENTER,
+                                newTile.gameObject.GetComponent<ResourceTile>());
+                            newTile.gameObject.GetComponent<NeighbourController>()
+                                .SetNeigbour((int) Neighbours.UP_CENTER, bonusTile);
+                        }
+                            break;
+                        case Neighbours.DOWN_CENTER:
+                        {
+                            newTile.gameObject.GetComponent<NeighbourController>()
+                                .SetNeigbour((int) Neighbours.UP_CENTER, null);
+                            bonusNeighbourC.SetNeigbour((int) Neighbours.DOWN_RIGHT,
+                                newTile.gameObject.GetComponent<ResourceTile>());
+                            newTile.gameObject.GetComponent<NeighbourController>()
+                                .SetNeigbour((int) Neighbours.UP_LEFT, bonusTile);
+                        }
+                            break;
+                        case Neighbours.DOWN_RIGHT:
+                        {
+                            newTile.gameObject.GetComponent<NeighbourController>()
+                                .SetNeigbour((int) Neighbours.UP_LEFT, null);
+                            bonusNeighbourC.SetNeigbour((int) Neighbours.UP_RIGHT,
+                                newTile.gameObject.GetComponent<ResourceTile>());
+                            newTile.gameObject.GetComponent<NeighbourController>()
+                                .SetNeigbour((int) Neighbours.DOWN_LEFT, bonusTile);
+                        }
+                            break;
                     }
+
+                    i = 6;
                 }
-            
+            }
+
         }
 
     }
+
     public void RightRotate()
     {
         Tile bonusTile = childTile.gameObject.GetComponent<Tile>();
         NeighbourController bonusNeighbourC = bonusTile.gameObject.GetComponent<NeighbourController>();
         if (bonusTile)
         {
-                rotationIndicatorParent.transform.Rotate(new Vector3(0, 0, 60));
-                Vector3 localPosition = rotationIndicatorChild.transform.localPosition;
-                Vector3Int cellPosition = grid.LocalToCell(localPosition);
-                localPosition = grid.CellToLocal(new Vector3Int(cellPosition.x, cellPosition.y));
-                rotationIndicatorChild.transform.localPosition = new Vector3(localPosition.x, localPosition.y, rotationIndicatorParent.transform.position.z);
-                for (int i = 0; i < 6; i++)
+            rotationIndicatorParent.transform.Rotate(new Vector3(0, 0, -60));
+            Vector3 localPosition = rotationIndicatorChild.transform.localPosition;
+            Vector3Int cellPosition = grid.LocalToCell(localPosition);
+            localPosition = grid.CellToLocal(new Vector3Int(cellPosition.x, cellPosition.y));
+            rotationIndicatorChild.transform.localPosition = new Vector3(localPosition.x, localPosition.y,
+                rotationIndicatorParent.transform.position.z);
+            for (int i = 0; i < 6; i++)
+            {
+                NeighbourController newNeighbourC = newTile.gameObject.GetComponent<NeighbourController>();
+                newNeighbourC.SetNeigbour(i, null);
+                if (bonusNeighbourC.neighboursFree[i])
                 {
-                    NeighbourController newNeighbourC = newTile.gameObject.GetComponent<NeighbourController>();
-                    newNeighbourC.SetNeigbour(i, null);
-                    if (bonusNeighbourC.neighboursFree[i])
+                    bonusNeighbourC.SetNeigbour(i, null);
+                    Neighbours index = (Neighbours) i;
+                    RotateStartAngle(startAngleNeighbours, true);
+                    switch (index)
                     {
-                        bonusNeighbourC.SetNeigbour(i, null);
-                        Neighbours index = (Neighbours)i;
-                        switch (index)
+                        case Neighbours.UP_LEFT:
                         {
-                            case Neighbours.UP_LEFT:
-                                {
-                                    newNeighbourC.SetNeigbour((int)Neighbours.DOWN_RIGHT, null);
-                                    bonusNeighbourC.SetNeigbour((int)Neighbours.UP_CENTER, newTile.gameObject.GetComponent<ResourceTile>());
-                                    newNeighbourC.SetNeigbour((int)Neighbours.DOWN_CENTER, bonusTile);
-                                }
-                                break;
-                            case Neighbours.UP_CENTER:
-                                {
-                                    newNeighbourC.SetNeigbour((int)Neighbours.DOWN_CENTER, null);
-                                    bonusNeighbourC.SetNeigbour((int)Neighbours.UP_RIGHT, newTile.gameObject.GetComponent<ResourceTile>());
-                                    newNeighbourC.SetNeigbour((int)Neighbours.DOWN_LEFT, bonusTile);
-                                }
-                                break;
-                            case Neighbours.UP_RIGHT:
-                                {
-                                    newNeighbourC.SetNeigbour((int)Neighbours.DOWN_LEFT, null);
-                                    bonusNeighbourC.SetNeigbour((int)Neighbours.DOWN_RIGHT, newTile.gameObject.GetComponent<ResourceTile>());
-                                    newNeighbourC.SetNeigbour((int)Neighbours.UP_LEFT, bonusTile);
-                                }
-                                break;
-                            case Neighbours.DOWN_LEFT:
-                                {
-                                    newNeighbourC.SetNeigbour((int)Neighbours.UP_RIGHT, null);
-                                    bonusNeighbourC.SetNeigbour((int)Neighbours.UP_LEFT, newTile.gameObject.GetComponent<ResourceTile>());
-                                    newNeighbourC.SetNeigbour((int)Neighbours.DOWN_RIGHT, bonusTile);
-                                }
-                                break;
-                            case Neighbours.DOWN_CENTER:
-                                {
-                                    newNeighbourC.SetNeigbour((int)Neighbours.UP_CENTER, null);
-                                    bonusNeighbourC.SetNeigbour((int)Neighbours.DOWN_LEFT, newTile.gameObject.GetComponent<ResourceTile>());
-                                    newNeighbourC.SetNeigbour((int)Neighbours.UP_RIGHT, bonusTile);
-                                }
-                                break;
-                            case Neighbours.DOWN_RIGHT:
-                                {
-                                    newNeighbourC.SetNeigbour((int)Neighbours.UP_LEFT, null);
-                                    bonusNeighbourC.SetNeigbour((int)Neighbours.DOWN_CENTER, newTile.gameObject.GetComponent<ResourceTile>());
-                                    newNeighbourC.SetNeigbour((int)Neighbours.UP_CENTER, bonusTile);
-                                }
-                                break;
+                            newNeighbourC.SetNeigbour((int) Neighbours.DOWN_RIGHT, null);
+                            bonusNeighbourC.SetNeigbour((int) Neighbours.UP_CENTER,
+                                newTile.gameObject.GetComponent<ResourceTile>());
+                            newNeighbourC.SetNeigbour((int) Neighbours.DOWN_CENTER, bonusTile);
                         }
-                        i = 6; 
+                            break;
+                        case Neighbours.UP_CENTER:
+                        {
+                            newNeighbourC.SetNeigbour((int) Neighbours.DOWN_CENTER, null);
+                            bonusNeighbourC.SetNeigbour((int) Neighbours.UP_RIGHT,
+                                newTile.gameObject.GetComponent<ResourceTile>());
+                            newNeighbourC.SetNeigbour((int) Neighbours.DOWN_LEFT, bonusTile);
+                        }
+                            break;
+                        case Neighbours.UP_RIGHT:
+                        {
+                            newNeighbourC.SetNeigbour((int) Neighbours.DOWN_LEFT, null);
+                            bonusNeighbourC.SetNeigbour((int) Neighbours.DOWN_RIGHT,
+                                newTile.gameObject.GetComponent<ResourceTile>());
+                            newNeighbourC.SetNeigbour((int) Neighbours.UP_LEFT, bonusTile);
+                        }
+                            break;
+                        case Neighbours.DOWN_LEFT:
+                        {
+                            newNeighbourC.SetNeigbour((int) Neighbours.UP_RIGHT, null);
+                            bonusNeighbourC.SetNeigbour((int) Neighbours.UP_LEFT,
+                                newTile.gameObject.GetComponent<ResourceTile>());
+                            newNeighbourC.SetNeigbour((int) Neighbours.DOWN_RIGHT, bonusTile);
+                        }
+                            break;
+                        case Neighbours.DOWN_CENTER:
+                        {
+                            newNeighbourC.SetNeigbour((int) Neighbours.UP_CENTER, null);
+                            bonusNeighbourC.SetNeigbour((int) Neighbours.DOWN_LEFT,
+                                newTile.gameObject.GetComponent<ResourceTile>());
+                            newNeighbourC.SetNeigbour((int) Neighbours.UP_RIGHT, bonusTile);
+                        }
+                            break;
+                        case Neighbours.DOWN_RIGHT:
+                        {
+                            newNeighbourC.SetNeigbour((int) Neighbours.UP_LEFT, null);
+                            bonusNeighbourC.SetNeigbour((int) Neighbours.DOWN_CENTER,
+                                newTile.gameObject.GetComponent<ResourceTile>());
+                            newNeighbourC.SetNeigbour((int) Neighbours.UP_CENTER, bonusTile);
+                        }
+                            break;
                     }
+
+                    i = 6;
                 }
+            }
         }
     }
-    public GameObject SetNewTile(Vector3 position)
+
+    private void RotateStartAngle(Neighbours prev, bool clockwise)
+    {
+        switch (prev)
+        {
+            case Neighbours.UP_LEFT:
+            {
+                startAngleNeighbours = (clockwise) ? Neighbours.DOWN_LEFT : Neighbours.UP_CENTER;
+                break;
+            }
+            case Neighbours.UP_CENTER:
+            {
+                startAngleNeighbours = (clockwise) ? Neighbours.UP_RIGHT : Neighbours.UP_LEFT;
+                break;
+            }
+            case Neighbours.UP_RIGHT:
+            {
+                startAngleNeighbours = (clockwise) ? Neighbours.DOWN_RIGHT : Neighbours.UP_CENTER;
+                break;
+            }
+            case Neighbours.DOWN_LEFT:
+            {
+                startAngleNeighbours = (clockwise) ? Neighbours.UP_LEFT : Neighbours.DOWN_CENTER;
+                break;
+            }
+            case Neighbours.DOWN_CENTER:
+            {
+                startAngleNeighbours = (clockwise) ? Neighbours.DOWN_LEFT : Neighbours.DOWN_RIGHT;
+                break;
+            }
+            case Neighbours.DOWN_RIGHT:
+            {
+                startAngleNeighbours = (clockwise) ? Neighbours.DOWN_CENTER : Neighbours.UP_RIGHT;
+                break;
+            }
+        }
+    }
+
+
+public GameObject SetNewTile(Vector3 position)
     {
         GameObject tile = Instantiate(newTile, tileHolder.transform);
         tile.transform.position = position;

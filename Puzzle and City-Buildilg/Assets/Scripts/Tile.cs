@@ -103,7 +103,7 @@ public abstract class Tile : MonoBehaviour
         parentTile.GetComponent<ChainController>().IncreaseScore(prev.GetComponent<BonusTile>());
     }
 
-    protected int GetOppositeIndex(Neighbours side)
+    public int GetOppositeIndex(Neighbours side)
     {
         switch (side)
         {
