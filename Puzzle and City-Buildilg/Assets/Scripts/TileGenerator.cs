@@ -26,7 +26,7 @@ public class TileGenerator : MonoBehaviour
         newTile = null;
         childTile = null;
         rotationIndicatorParent.transform.position = grid.CellToWorld(new Vector3Int(0, 0));
-        rotationIndicatorChild.transform.position = grid.CellToWorld(new Vector3Int(0, 1));
+        rotationIndicatorChild.transform.position = grid.CellToWorld(new Vector3Int(0, -1));
         rotationIndicatorChild.transform.parent = rotationIndicatorParent.transform;
         startAngleNeighbours = Neighbours.UP_LEFT;
     }
@@ -78,7 +78,6 @@ public class TileGenerator : MonoBehaviour
             bonusTile.GetOppositeIndex(startAngleNeighbours),
             newTile.gameObject.GetComponent<ResourceTile>());
         newTile.gameObject.GetComponent<NeighbourController>().SetNeigbour((int) startAngleNeighbours, bonusTile);
-        Debug.Log(startAngleNeighbours);
     }
 
     public void LeftRotate()
@@ -258,7 +257,7 @@ public class TileGenerator : MonoBehaviour
         {
             case Neighbours.UP_LEFT:
             {
-                startAngleNeighbours = (clockwise) ? Neighbours.DOWN_LEFT : Neighbours.UP_CENTER;
+                startAngleNeighbours = (clockwise) ? Neighbours.UP_CENTER : Neighbours.DOWN_LEFT;
                 break;
             }
             case Neighbours.UP_CENTER:
@@ -287,6 +286,7 @@ public class TileGenerator : MonoBehaviour
                 break;
             }
         }
+        Debug.Log(startAngleNeighbours);
     }
 
 
