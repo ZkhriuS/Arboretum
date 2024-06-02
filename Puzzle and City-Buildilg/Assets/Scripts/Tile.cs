@@ -116,16 +116,23 @@ public abstract class Tile : MonoBehaviour
         }
         return -1;
     }
+
+    public static Vector3 GetNeighbourRelativeCoord(Vector3 coord, Neighbours neighbour)
+    {
+        
+        
+        return Vector3.zero;
+    }
 }
 
-    
+
 
 public enum Neighbours
 {
     UP_LEFT,
     UP_CENTER,
     UP_RIGHT,
-    DOWN_LEFT,
-    DOWN_CENTER,
     DOWN_RIGHT,
+    DOWN_CENTER,
+    DOWN_LEFT
 }
