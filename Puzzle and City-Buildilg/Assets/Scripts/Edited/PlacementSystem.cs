@@ -54,15 +54,21 @@ public class PlacementSystem : MonoBehaviour
     {
         GameObject nextTile = generator.SetNewTile(baseTile.transform.position);
         nextTile.GetComponent<Tile>().isGrounded = true;
+        
+        NeighbourController nextTileNeighbourController = nextTile.GetComponent<NeighbourController>();
+        NeighbourController childTileNeighbourController = nextTile.GetComponentsInChildren<NeighbourController>()[1];
+        
+        GameObject childTile = childTileNeighbourController.gameObject;
+        
         Vector3Int nextTileCellPosition = grid.WorldToCell(nextTile.transform.position);
-        GameObject childTile = nextTile.transform.GetChild(0).gameObject;
         Vector3Int childTileCellPosition = grid.WorldToCell(childTile.transform.position);
+        
         tileGrid.UpdateTileObject(nextTile, nextTileCellPosition);
         tileGrid.AddTileObject(childTile,childTileCellPosition);
-        NeighbourController nextTileNeighbourController = nextTile.GetComponent<NeighbourController>();
-        NeighbourController childTileNeighbourController = childTile.GetComponent<NeighbourController>();
+        
         ScanTilesAround(nextTileCellPosition, nextTileNeighbourController);
         ScanTilesAround(childTileCellPosition, childTileNeighbourController);
+        
         foreach (var tile in nextTileNeighbourController.neighboursFree)
         {
             if (tile)
