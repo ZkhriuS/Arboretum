@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyGenerator: {fileID: 5126291374799965636}
-  timerDisplay: {fileID: 4395021831635149196}
+  timerDisplay: {fileID: 2065591601226003191}
   moneyDisplay: {fileID: 5057453347407123041}
 --- !u!114 &8461145118035907107
 MonoBehaviour:
