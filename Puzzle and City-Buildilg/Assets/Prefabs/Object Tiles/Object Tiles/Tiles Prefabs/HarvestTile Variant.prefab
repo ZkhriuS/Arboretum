@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7907187421070190046}
   - component: {fileID: 4055381728424014283}
   - component: {fileID: 7115791786449996423}
-  - component: {fileID: 5637679210957677176}
   - component: {fileID: 4593856424826129433}
   - component: {fileID: 9150535387918774108}
+  - component: {fileID: 5637679210957677176}
   m_Layer: 0
   m_Name: HarvestTile Variant
   m_TagString: Tile
@@ -137,21 +137,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5637679210957677176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4055381728424014281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f1796633d3ef7743a976099b228c99c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGrounded: 0
-  type: harvest
-  colliderSize: {x: 1.110283, y: 2.199705, z: 1}
 --- !u!114 &4593856424826129433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,3 +172,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &5637679210957677176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055381728424014281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1796633d3ef7743a976099b228c99c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrounded: 0
+  type: harvest
+  colliderSize: {x: 1.110283, y: 2.199705, z: 1}

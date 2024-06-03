@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: -5968424256280781222}
   - component: {fileID: 7527062590848739000}
   - component: {fileID: 8824976498257054566}
-  - component: {fileID: 7642852886308293883}
   - component: {fileID: 4681616372402230786}
+  - component: {fileID: 7642852886308293883}
   m_Layer: 0
   m_Name: Forest Plus 2
   m_TagString: Untagged
@@ -136,24 +136,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7642852886308293883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2487335385217370534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd71e934bf816774a84718b1c432a233, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGrounded: 0
-  type: forest
-  bonus: 2
-  typeBonus: 43
-  error: {r: 1, g: 0.07058824, b: 0.07058824, a: 0.4117647}
-  correct: {r: 1, g: 1, b: 1, a: 0.4117647}
 --- !u!114 &4681616372402230786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,3 +155,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &7642852886308293883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487335385217370534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd71e934bf816774a84718b1c432a233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrounded: 0
+  type: forest
+  bonus: 2
+  typeBonus: 43
+  error: {r: 1, g: 0, b: 0, a: 0.78431374}
+  correct: {r: 0, g: 1, b: 0, a: 0.78431374}

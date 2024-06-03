@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: -2445988918024984406}
   - component: {fileID: 5271669996585710152}
   - component: {fileID: 4218425256912919251}
-  - component: {fileID: 5791599828834789414}
   - component: {fileID: 1876370968035371332}
+  - component: {fileID: 5791599828834789414}
   m_Layer: 0
   m_Name: Water Plus 2
   m_TagString: Untagged
@@ -136,24 +136,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5791599828834789414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7032214610435243386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd71e934bf816774a84718b1c432a233, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGrounded: 0
-  type: water
-  bonus: 2
-  typeBonus: 43
-  error: {r: 1, g: 0.07058824, b: 0.07058824, a: 0.4117647}
-  correct: {r: 1, g: 1, b: 1, a: 0.4117647}
 --- !u!114 &1876370968035371332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,3 +155,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &5791599828834789414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032214610435243386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd71e934bf816774a84718b1c432a233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrounded: 0
+  type: water
+  bonus: 2
+  typeBonus: 43
+  error: {r: 1, g: 0, b: 0, a: 0.78431374}
+  correct: {r: 0, g: 1, b: 0, a: 0.78431374}

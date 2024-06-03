@@ -171,5 +171,5 @@ MonoBehaviour:
   type: services
   bonus: 1
   typeBonus: 43
-  error: {r: 1, g: 0.07058824, b: 0.07058824, a: 0.4117647}
-  correct: {r: 1, g: 1, b: 1, a: 0.4117647}
+  error: {r: 1, g: 0, b: 0, a: 0.78431374}
+  correct: {r: 0, g: 1, b: 0, a: 0.78431374}

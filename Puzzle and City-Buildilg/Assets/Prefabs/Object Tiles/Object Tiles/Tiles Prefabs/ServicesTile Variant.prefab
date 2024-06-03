@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: -9014847397873881025}
   - component: {fileID: 2031524474317132664}
   - component: {fileID: 8404816881147917832}
-  - component: {fileID: 8286749806000539414}
   - component: {fileID: 5485649483808268629}
   - component: {fileID: 2561061112421548928}
+  - component: {fileID: 8286749806000539414}
   m_Layer: 0
   m_Name: ServicesTile Variant
   m_TagString: Tile
@@ -137,21 +137,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8286749806000539414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031524474317132670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f1796633d3ef7743a976099b228c99c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGrounded: 0
-  type: services
-  colliderSize: {x: 1.110283, y: 2.199705, z: 1}
 --- !u!114 &5485649483808268629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,3 +172,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &8286749806000539414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031524474317132670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1796633d3ef7743a976099b228c99c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrounded: 0
+  type: services
+  colliderSize: {x: 1.110283, y: 2.199705, z: 1}
