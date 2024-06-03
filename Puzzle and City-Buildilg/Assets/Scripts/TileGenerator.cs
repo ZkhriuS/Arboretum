@@ -80,6 +80,14 @@ public class TileGenerator : MonoBehaviour
         newTile.gameObject.GetComponent<NeighbourController>().SetNeigbour((int) startAngleNeighbours, bonusTile);
     }
 
+    public void DeleteTile()
+    {
+        Destroy(newTile);
+        Destroy(childTile);
+        newTile = null;
+        childTile = null;
+    }
+
     public void LeftRotate()
     {
         Tile bonusTile = childTile.gameObject.GetComponent<Tile>();
