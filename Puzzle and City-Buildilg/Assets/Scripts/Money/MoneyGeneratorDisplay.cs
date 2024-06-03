@@ -8,15 +8,10 @@ namespace Money
     {
         public MoneyGenerator moneyGenerator;
         [Space]
-        public TimerDisplay timerDisplay;
+        public RectTransform timerDisplay;
         public RectTransform moneyDisplay;
 
         private bool _canStartGenerator = true;
-        
-        private void Awake()
-        {
-            timerDisplay.timer = moneyGenerator.GetComponent<Timer>();
-        }
 
         private void Start()
         {

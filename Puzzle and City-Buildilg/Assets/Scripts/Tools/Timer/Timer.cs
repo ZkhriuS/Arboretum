@@ -18,6 +18,7 @@ namespace Tools.Timer
             delay -= Time.deltaTime;
 
             if (delay > 0) return;
+            delay = 0;
             timerOn = false;
             OnTimerDone?.Invoke();
         }
