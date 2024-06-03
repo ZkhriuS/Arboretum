@@ -14,7 +14,8 @@ namespace Edited
                 BonusTile bonusTile = _bonusTileForApply.GetComponent<BonusTile>();
                 if (bonusTile)
                 {
-                    bonusTile.SetBaseTile();
+                    //bonusTile.SetBaseTile();
+                    placement.SetTile(bonusTile);
                     placement.ResetTouchIndicator();
                     gameManager.ChangeTileSetMode();
                 }
