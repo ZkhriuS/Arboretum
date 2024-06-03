@@ -22,7 +22,7 @@ public class NeighbourController : MonoBehaviour
         UpdateNeighboursMask();
     }
 
-    public void SetNeigbour(int index, Tile target)
+    public void SetNeighbour(int index, Tile target)
     {
         neighboursFree[index] = target;
     }
