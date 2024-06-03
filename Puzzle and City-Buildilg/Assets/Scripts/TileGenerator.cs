@@ -6,22 +6,16 @@ public class TileGenerator : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> tileList;
-
     [SerializeField]
     private List<GameObject> plusTileList;
-
     [SerializeField]
     private List<GameObject> mulTileList;
-
     [SerializeField]
     private GameObject tileHolder;
-
     [SerializeField]
     private Grid grid;
-
     [SerializeField]
     private GameObject rotationIndicatorParent;
-
     [SerializeField]
     private GameObject rotationIndicatorChild;
 
@@ -32,7 +26,6 @@ public class TileGenerator : MonoBehaviour
 
     [SerializeField]
     private int minPeople;
-
     [SerializeField]
     private int maxPeople;
 

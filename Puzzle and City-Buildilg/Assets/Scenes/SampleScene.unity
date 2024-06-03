@@ -726,12 +726,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2422f050e76097945a7de0509214d9ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chainPanel: {fileID: 0}
-  text: {fileID: 0}
-  sprites: []
+  chainPanel: {fileID: 4857312119663205323}
+  text: {fileID: 4857312120099354557}
+  sprites:
+  - {fileID: 21300000, guid: 30fd3e32003c6dc41b6b0ea81124b9b5, type: 3}
+  - {fileID: 21300000, guid: fe52e2241f916cb41a984929c24cbe5f, type: 3}
+  - {fileID: 21300000, guid: 67bd2b8570131d94b8b066e296ca6154, type: 3}
+  - {fileID: 21300000, guid: 5480d2feb1e0a094988a41e352521ecd, type: 3}
+  - {fileID: 21300000, guid: 0a314f41f04631340895bc9e98f82014, type: 3}
+  - {fileID: 21300000, guid: 6ac7f1dcf291b604d8126ade7856dfd0, type: 3}
   generator: {fileID: 389449321}
-  resourcePanels: []
-  currentResourcePanel: {fileID: 0}
+  resourcePanels:
+  - {fileID: 268570740869362385}
+  - {fileID: 268570739432943061}
+  - {fileID: 268570740368767229}
+  - {fileID: 268570740242635619}
+  - {fileID: 268570739805935015}
+  - {fileID: 268570739716223761}
+  currentResourcePanel: {fileID: 274464120544500390}
 --- !u!1 &435029358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,6 +1746,7 @@ GameObject:
   - component: {fileID: 642973750}
   - component: {fileID: 642973751}
   - component: {fileID: 642973752}
+  - component: {fileID: 642973753}
   m_Layer: 0
   m_Name: TileHolder
   m_TagString: Untagged
@@ -1819,6 +1832,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527fbbe72bc7a5a48b48fd86529bea1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &642973753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642973748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c53b4ec77bc6d4479f1b48fc79944fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileGenerator: {fileID: 389449321}
+  chainManager: {fileID: 389449322}
 --- !u!1 &769340095 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3096046500596487841, guid: ad4c2e30b43135f4c84918f73d1476a8, type: 3}
