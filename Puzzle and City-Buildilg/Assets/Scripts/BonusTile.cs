@@ -49,16 +49,7 @@ public class BonusTile : Tile
             }
         }
     }
-
-    public void SetBaseTile()
-    {
-        Tile baseTile = gameObject.GetComponent<BonusTile>();
-        if (baseTile)
-        {
-            SetNewTile(baseTile.gameObject);
-            Destroy(baseTile.gameObject);
-        }
-    }
+    
     private void OnTriggerExit(Collider other)
     {
         Tile bonusTile = other.GetComponentInChildren<BonusTile>();
