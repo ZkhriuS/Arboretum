@@ -65,6 +65,11 @@ public class BonusTile : Tile
         if (bonusTile != null)
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            var holder = bonusTile.GetComponentInParent<TileHolder>();
+            if (holder)
+            {
+                holder.SetTriggeredBonusTile(null);
+            }
             if (!CheckTiles(bonusTile, gameObject.GetComponent<BonusTile>()))
             {
                 
