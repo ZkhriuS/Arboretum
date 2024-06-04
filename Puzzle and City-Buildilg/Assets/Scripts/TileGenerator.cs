@@ -64,6 +64,12 @@ public class TileGenerator : MonoBehaviour
 
     public void AddTile()
     {
+        if (_newTile && _childTile)
+        {
+            ReleaseTile();
+            return;
+        }
+        
         int variant = UnityEngine.Random.Range(0, tileList.Capacity);
         _newTile = Instantiate(tileList[variant], tileHolder.transform);
         variant = UnityEngine.Random.Range(0, 10);
@@ -85,11 +91,20 @@ public class TileGenerator : MonoBehaviour
         _newTile.gameObject.GetComponent<NeighbourController>().neighboursFree[_startAngleNeighbours] = bonusTile;
     }
 
-    // TODO hide
+    public void ReleaseTile()
+    {
+        _newTile.gameObject.SetActive(true);
+        _childTile.gameObject.SetActive(true);
+    }
+    
+    public void HideTile()
+    {
+        _newTile.gameObject.SetActive(false);
+        _childTile.gameObject.SetActive(false);
+    }
+    
     public void DeleteTile()
     {
-        Destroy(_newTile);
-        Destroy(_childTile);
         _newTile = null;
         _childTile = null;
     }

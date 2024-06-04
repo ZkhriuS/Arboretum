@@ -50,6 +50,7 @@ public class PlacementSystem : MonoBehaviour
 
     public void ResetTouchIndicator()
     {
+        generator.DeleteTile();
         touchIndicator = null;
     }
 
