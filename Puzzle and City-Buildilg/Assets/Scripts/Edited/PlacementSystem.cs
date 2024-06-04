@@ -54,7 +54,7 @@ public class PlacementSystem : MonoBehaviour
     {
         GameObject nextTile = generator.SetNewTile(baseTile.transform.position);
         nextTile.GetComponent<Tile>().isGrounded = true;
-        nextTile.GetComponent<ChainController>().IncreaseScore();
+        nextTile.GetComponent<ChainController>().IncreaseScore(baseTile.GetComponent<BonusTile>());
         
         NeighbourController nextTileNeighbourController = nextTile.GetComponent<NeighbourController>();
         NeighbourController childTileNeighbourController = nextTile.GetComponentsInChildren<NeighbourController>()[1];
