@@ -1,20 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using System;
 
 public class ChainController : MonoBehaviour
 {
     public int score;
     public GameObject groundTile;
-    [SerializeField]
-    private GameObject scoreTextPrefab;
-    private TextMeshProUGUI scoreText;
-    [SerializeField]
-    private List<ResourceTile> chain;
+    public List<ResourceTile> chain; // TODO ResourceTile -> ChainController
     private bool closed;
     public static Action<List<GroundTile>> OnChainClosed;
+    public Action OnChainChanged;
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +35,7 @@ public class ChainController : MonoBehaviour
                 }
             }
         }
-        if (gameObject.GetComponent<Tile>().isGrounded)
-            AddCanvas();
+        OnChainChanged?.Invoke();
     }
 
     // Update is called once per frame
@@ -62,19 +56,6 @@ public class ChainController : MonoBehaviour
             }
             OnChainClosed?.Invoke(ground);
         }
-    }
-    private void OnMouseEnter()
-    {
-        if (scoreText && !gameObject.GetComponent<BoxCollider>().isTrigger)
-        {
-            scoreText.gameObject.SetActive(true);
-            scoreText.text = score.ToString();
-        }
-    }
-    private void OnMouseExit()
-    {
-        if(scoreText && !gameObject.GetComponent<BoxCollider>().isTrigger)
-            scoreText.gameObject.SetActive(false);
     }
     public int IncreaseScore(BonusTile prev)
     {
@@ -115,21 +96,10 @@ public class ChainController : MonoBehaviour
             if(item!=tile)
                 item.GetComponent<ChainController>().chain.Add(tile);
         }
+        
+        OnChainChanged?.Invoke();
+        
         return score;
-    }
-
-    public int GetScore()
-    {
-        return score;
-    }
-    public void AddCanvas()
-    {
-        scoreTextPrefab.GetComponent<Canvas>().worldCamera = Camera.main;
-        GameObject canvas = Instantiate(scoreTextPrefab, gameObject.transform);
-        scoreText = canvas.GetComponentInChildren<TextMeshProUGUI>();
-        scoreText.gameObject.SetActive(true);
-        scoreText.text = score.ToString();
-        canvas.transform.position = gameObject.transform.position;
     }
 
     public void CloseChain()
