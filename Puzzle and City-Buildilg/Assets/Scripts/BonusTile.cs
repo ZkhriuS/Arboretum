@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Edited;
@@ -70,31 +71,31 @@ public class BonusTile : Tile
 
     private bool CheckTiles(Tile bonusTile, Tile triggeredTile)
     {
-        for (int i = 0; i < 6; i++)
+        foreach (Neighbours i in Enum.GetValues(typeof(Neighbours)))
         {
             if (bonusTile.gameObject.GetComponent<NeighbourController>().neighboursFree[i])
             {
                 NeighbourController triggeredNeighbourC = triggeredTile.gameObject.GetComponent<NeighbourController>();
-                switch ((Neighbours)i)
+                switch (i)
                 {
                     case Neighbours.UP_LEFT:
-                        if (triggeredNeighbourC.neighboursFree[(int)Neighbours.DOWN_RIGHT])
+                        if (triggeredNeighbourC.neighboursFree[Neighbours.DOWN_RIGHT])
                             return false;
                         break;
                     case Neighbours.UP_CENTER:
-                        if (triggeredNeighbourC.neighboursFree[(int)Neighbours.DOWN_CENTER])
+                        if (triggeredNeighbourC.neighboursFree[Neighbours.DOWN_CENTER])
                             return false;
                         break;
                     case Neighbours.UP_RIGHT:
-                        if (triggeredNeighbourC.neighboursFree[(int)Neighbours.DOWN_LEFT])
+                        if (triggeredNeighbourC.neighboursFree[Neighbours.DOWN_LEFT])
                             return false;
                         break;
                     case Neighbours.DOWN_LEFT:
-                        if (triggeredNeighbourC.neighboursFree[(int)Neighbours.UP_RIGHT])
+                        if (triggeredNeighbourC.neighboursFree[Neighbours.UP_RIGHT])
                             return false;
                         break;
                     case Neighbours.DOWN_CENTER:
-                        if (triggeredNeighbourC.neighboursFree[(int)Neighbours.UP_CENTER])
+                        if (triggeredNeighbourC.neighboursFree[Neighbours.UP_CENTER])
                             return false;
                         break;
                     case Neighbours.DOWN_RIGHT:
@@ -102,7 +103,7 @@ public class BonusTile : Tile
                             return false;
                         break;
                 }
-                i = 6;
+                break;
             }
         }
         return true;
