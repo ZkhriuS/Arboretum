@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Edited;
 
 public class ChainController : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class ChainController : MonoBehaviour
             foreach(var item in chain)
             {
                 Vector3 tilePosition = item.gameObject.transform.position;
-                GameObject tile = Instantiate(groundTile, item.GetComponentInParent<TileGenerator>().gameObject.transform);
+                GameObject tile = Instantiate(groundTile, item.GetComponentInParent<TileHolder>().gameObject.transform);
                 tile.transform.position = tilePosition;
                 tile.GetComponent<NeighbourController>().neighboursFree = item.gameObject.GetComponent<NeighbourController>().neighboursFree;
                 tile.GetComponent<GroundTile>().SetNeighbours(item.GetComponent<ResourceTile>());

@@ -96,7 +96,9 @@ public class PlacementSystem : MonoBehaviour
     private Tile HitTile(Vector3Int origin)
     {
         TileObject tileObject = tileGrid.FindTileObject(origin);
-        return tileObject?.GetTileObject().GetComponent<Tile>();
+        if (tileObject!=null)
+            return tileObject.GetTileObject().GetComponent<Tile>(); 
+        return null;
     }
 
     private void ScanTilesAround(Vector3Int cell, NeighbourController tile)

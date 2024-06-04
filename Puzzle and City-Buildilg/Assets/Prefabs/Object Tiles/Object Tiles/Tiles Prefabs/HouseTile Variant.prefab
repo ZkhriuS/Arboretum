@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 1
-  groundTile: {fileID: 6398189713374727025, guid: f0759ca79668a4f4b95e6a85d80d8289, type: 3}
+  groundTile: {fileID: 1130435365189726671, guid: 8f99b01ccb907e4448c7073cacba8ebd, type: 3}
   chain: []
 --- !u!114 &8877690783570075595
 MonoBehaviour:
@@ -181,12 +181,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighboursFree:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 0}
+    - Key: 1
+      Value: {fileID: 0}
+    - Key: 2
+      Value: {fileID: 0}
+    - Key: 5
+      Value: {fileID: 0}
+    - Key: 4
+      Value: {fileID: 0}
+    - Key: 3
+      Value: {fileID: 0}
 --- !u!114 &4509376031127756202
 MonoBehaviour:
   m_ObjectHideFlags: 0
