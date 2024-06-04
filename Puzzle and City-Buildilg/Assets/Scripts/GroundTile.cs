@@ -17,15 +17,9 @@ public class GroundTile : Tile
         isSetMode = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SetNeighbours(ResourceTile prev)
     {
-        for (int i = 0; i < 6; i++)
+        foreach (Neighbours i in Enum.GetValues(typeof(Neighbours)))
         {
             if (gameObject.GetComponent<NeighbourController>().neighboursFree[i])
             {

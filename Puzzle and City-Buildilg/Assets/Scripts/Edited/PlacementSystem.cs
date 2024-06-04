@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using AYellowpaper.SerializedCollections;
 using Edited;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
+using GameObject = UnityEngine.GameObject;
 
 public class PlacementSystem : MonoBehaviour
 {
@@ -47,6 +50,7 @@ public class PlacementSystem : MonoBehaviour
 
     public void ResetTouchIndicator()
     {
+        generator.DeleteTile();
         touchIndicator = null;
     }
 
@@ -71,47 +75,42 @@ public class PlacementSystem : MonoBehaviour
         
         foreach (var tile in nextTileNeighbourController.neighboursFree)
         {
-            if (tile)
+            if (tile.Value)
             {
-                ScanTilesAround(grid.WorldToCell(tile.gameObject.transform.position), tile.GetComponent<NeighbourController>());
+                ScanTilesAround(grid.WorldToCell(tile.Value.gameObject.transform.position), tile.Value.GetComponent<NeighbourController>());
             }
         }
         foreach (var tile in childTileNeighbourController.neighboursFree)
         {
-            if (tile)
+            if (tile.Value)
             {
-                ScanTilesAround(grid.WorldToCell(tile.gameObject.transform.position), tile.GetComponent<NeighbourController>());
+                ScanTilesAround(grid.WorldToCell(tile.Value.gameObject.transform.position), tile.Value.GetComponent<NeighbourController>());
             }
         }
+        
+        nextTile.GetComponent<ChainController>().IncreaseScore(baseTile.GetComponent<BonusTile>());
+        
         Destroy(baseTile.gameObject);
     }
 
-    private GameObject HitTile(Vector3Int origin)
+    private Tile HitTile(Vector3Int origin)
     {
         TileObject tileObject = tileGrid.FindTileObject(origin);
-        return tileObject?.GetTileObject();
+        return tileObject?.GetTileObject().GetComponent<Tile>();
     }
 
     private void ScanTilesAround(Vector3Int cell, NeighbourController tile)
     {
-        GameObject[] other = new GameObject[6];
-        int index = (int) Neighbours.UP_LEFT;
-        other[index] = HitTile(cell + new Vector3Int(cell.y%2, -1));
-        tile.neighboursFree[index] = (other[index])? other[index].GetComponent<Tile>():null;
-        index = (int) Neighbours.UP_CENTER;
-        other[index] = HitTile(cell + new Vector3Int(1, 0));
-        tile.neighboursFree[index] = (other[index])? other[index].GetComponent<Tile>():null;
-        index = (int) Neighbours.UP_RIGHT;
-        other[index] = HitTile(cell + new Vector3Int(cell.y%2, 1));
-        tile.neighboursFree[index] = (other[index])? other[index].GetComponent<Tile>():null;
-        index = (int) Neighbours.DOWN_LEFT;
-        other[index] = HitTile(cell + new Vector3Int(-(cell.y+1)%2, -1));
-        tile.neighboursFree[index] = (other[index])? other[index].GetComponent<Tile>():null;
-        index = (int) Neighbours.DOWN_CENTER;
-        other[index] = HitTile(cell + new Vector3Int(-1, 0));
-        tile.neighboursFree[index] = (other[index])? other[index].GetComponent<Tile>():null;
-        index = (int) Neighbours.DOWN_RIGHT;
-        other[index] = HitTile(cell + new Vector3Int(-(cell.y+1)%2, 1));
-        tile.neighboursFree[index] = (other[index])? other[index].GetComponent<Tile>():null;
+        var other = new SerializedDictionary<Neighbours, Tile>
+        {
+            { Neighbours.UP_LEFT, HitTile(cell + new Vector3Int(Math.Abs(cell.y) % 2, -1)) },
+            { Neighbours.UP_CENTER, HitTile(cell + new Vector3Int(1, 0)) },
+            { Neighbours.UP_RIGHT, HitTile(cell + new Vector3Int(Math.Abs(cell.y) % 2, 1)) },
+            { Neighbours.DOWN_LEFT, HitTile(cell + new Vector3Int(-(Math.Abs(cell.y) + 1) % 2, -1)) },
+            { Neighbours.DOWN_CENTER, HitTile(cell + new Vector3Int(-1, 0)) },
+            { Neighbours.DOWN_RIGHT, HitTile(cell + new Vector3Int(-(Math.Abs(cell.y) + 1) % 2, 1)) }
+        };
+        
+        tile.neighboursFree = other;
     }
 }

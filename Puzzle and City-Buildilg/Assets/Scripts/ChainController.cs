@@ -6,7 +6,7 @@ public class ChainController : MonoBehaviour
 {
     public int score;
     public GameObject groundTile;
-    public List<ResourceTile> chain; // TODO ResourceTile -> ChainController
+    public List<ChainController> chain; // TODO ResourceTile -> ChainController
     private bool closed;
     public static Action<List<GroundTile>> OnChainClosed;
     public Action OnChainChanged;
@@ -14,12 +14,12 @@ public class ChainController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        chain = new List<ResourceTile>();
+        chain = new List<ChainController>();
         closed = false;
-        chain.Add(gameObject.GetComponent<ResourceTile>());
+        chain.Add(gameObject.GetComponent<ChainController>());
         ResourceTile tile = gameObject.GetComponent<ResourceTile>();
         NeighbourController tileNeighbourC = gameObject.GetComponent<NeighbourController>();
-        for (int i = 0; i < 6; i++)
+        foreach (Neighbours i in Enum.GetValues(typeof(Neighbours)))
         {
             if (tileNeighbourC.neighboursFree[i])
             {
@@ -50,55 +50,56 @@ public class ChainController : MonoBehaviour
                 GameObject tile = Instantiate(groundTile, item.GetComponentInParent<TileGenerator>().gameObject.transform);
                 tile.transform.position = tilePosition;
                 tile.GetComponent<NeighbourController>().neighboursFree = item.gameObject.GetComponent<NeighbourController>().neighboursFree;
-                tile.GetComponent<GroundTile>().SetNeighbours(item);
+                tile.GetComponent<GroundTile>().SetNeighbours(item.GetComponent<ResourceTile>());
                 ground.Add(tile.GetComponent<GroundTile>());
                 Destroy(item.gameObject);
             }
             OnChainClosed?.Invoke(ground);
         }
     }
-    public int IncreaseScore(BonusTile prev)
+
+    public int IncreaseScore(BonusTile stackedTile)
     {
-        ResourceTile tile = gameObject.GetComponent<ResourceTile>();
-        NeighbourController tileNeighbourC = gameObject.GetComponent<NeighbourController>();
-        int value = 0;
-        for (int i=0; i<6; i++)
+        var tileType = GetComponent<ResourceTile>().type;
+
+        foreach (var neighbour in GetComponent<NeighbourController>().neighboursFree)
         {
-            if (tileNeighbourC.neighboursFree[i])
+            if (neighbour.Value == null) continue;
+
+            if (!neighbour.Value.TryGetComponent(out ResourceTile resourceTile)) continue;
+            if (resourceTile.type != tileType) continue;
+
+            if (!neighbour.Value.TryGetComponent(out ChainController chainElement)) continue;
+            if (chain == chainElement.chain) continue;
+
+            var newScore = chainElement.score + score;
+
+            chainElement.chain.AddRange(chain);
+            
+            foreach (var element in chainElement.chain)
             {
-                if (tileNeighbourC.neighboursFree[i].GetComponent<ResourceTile>() && tile.type.Equals(tileNeighbourC.neighboursFree[i].type))
-                {
-                    if (value != tileNeighbourC.neighboursFree[i].GetComponent<ChainController>().score)
-                    {
-                        score += tileNeighbourC.neighboursFree[i].GetComponent<ChainController>().score;
-                        value = tileNeighbourC.neighboursFree[i].GetComponent<ChainController>().score;
-                    }
-                    foreach (var item in tileNeighbourC.neighboursFree[i].GetComponent<ChainController>().chain)
-                    {
-                        if (!chain.Contains(item))
-                        {
-                            chain.Add(item);
-                        }
-                    }
-                }
+                element.chain = chainElement.chain;
+                element.score = newScore;
             }
         }
-        if (prev.typeBonus == '+' && tile.type.Equals(prev.type))
+
+        if (tileType == stackedTile.type)
         {
-            score += prev.bonus;
-        } else if(prev.typeBonus == '*' && tile.type.Equals(prev.type))
-        {
-            score *= prev.bonus;
+            var newStackedScore = stackedTile.typeBonus switch
+            {
+                '+' => score + stackedTile.bonus,
+                '*' => score * stackedTile.bonus,
+                _ => score
+            };
+
+            foreach (var element in chain)
+            {
+                element.score = newStackedScore;
+            }
         }
-        foreach(var item in chain)
-        {
-            item.GetComponent<ChainController>().score = score;
-            if(item!=tile)
-                item.GetComponent<ChainController>().chain.Add(tile);
-        }
-        
+
         OnChainChanged?.Invoke();
-        
+
         return score;
     }
 
@@ -117,6 +118,6 @@ public class ChainController : MonoBehaviour
 
     public string GetChainType()
     {
-        return chain[0].type;
+        return chain[0].GetComponent<ResourceTile>().type;
     }
 }
