@@ -1,66 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
 public class NeighbourController : MonoBehaviour
 {
-    public Tile[] neighboursFree;
-    private const int LENGTH = 6;
-    private int neighboursMask;
-
-    private void Start()
+    public SerializedDictionary<Neighbours, Tile> neighboursFree = new ()
     {
-        neighboursMask = 0;
-        if(neighboursFree==null)
-            neighboursFree = new Tile[LENGTH];
-        UpdateNeighboursMask();
-    }
+        {Neighbours.UP_LEFT, null},
+        {Neighbours.UP_CENTER, null},
+        {Neighbours.UP_RIGHT, null},
+        {Neighbours.DOWN_RIGHT, null},
+        {Neighbours.DOWN_CENTER, null},
+        {Neighbours.DOWN_LEFT, null},
+    };
+    
+    // public List<Tile> neighboursFree = new (new Tile[LENGTH]);
 
-    private void Update()
+    public void SetNeighbour(Neighbours neighbour, Tile target)
     {
-        UpdateNeighboursMask();
+        neighboursFree[neighbour] = target;
     }
-
-    public void SetNeighbour(int index, Tile target)
-    {
-        neighboursFree[index] = target;
-    }
-
-    public bool AllNeighboursResource()
-    {
-        for (int i = 0; i < 6; i++)
-        {
-            if (neighboursFree[i] && neighboursFree[i].GetComponent<ResourceTile>() == null)
-                return false;
-        }
-        return true;
-    }
-
-    public int GetLength()
-    {
-        return LENGTH;
-    }
-
-    private void UpdateNeighboursMask()
-    {
-        for (int i = 0; i < LENGTH; i++)
-        {
-            int value = 1 << i;
-            neighboursMask += (neighboursFree[i])? value : -value;
-        }
-    }
-
-    public void UnionMask(NeighbourController other)
-    {
-        neighboursMask = neighboursMask | other.neighboursMask;
-        for (int i = 0; i < LENGTH; i++)
-        {
-            if (((1 << i) & neighboursMask) != 0 && !neighboursFree[i])
-            {
-                neighboursFree[i] = other.neighboursFree[i];
-            }
-        }
-    }
-
 }

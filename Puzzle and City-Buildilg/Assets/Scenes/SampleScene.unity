@@ -199,6 +199,18 @@ PrefabInstance:
       propertyPath: neighboursFree.Array.data[5]
       value: 
       objectReference: {fileID: 1433881599}
+    - target: {fileID: 5227525712817228037, guid: ad4c2e30b43135f4c84918f73d1476a8, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[3].Value
+      value: 
+      objectReference: {fileID: 1433881599}
+    - target: {fileID: 5227525712817228037, guid: ad4c2e30b43135f4c84918f73d1476a8, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[4].Value
+      value: 
+      objectReference: {fileID: 1839486867}
+    - target: {fileID: 5227525712817228037, guid: ad4c2e30b43135f4c84918f73d1476a8, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[5].Value
+      value: 
+      objectReference: {fileID: 1758627615}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -726,12 +738,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2422f050e76097945a7de0509214d9ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chainPanel: {fileID: 0}
-  text: {fileID: 0}
-  sprites: []
+  chainPanel: {fileID: 4857312119663205323}
+  text: {fileID: 4857312120099354557}
+  sprites:
+  - {fileID: 21300000, guid: 30fd3e32003c6dc41b6b0ea81124b9b5, type: 3}
+  - {fileID: 21300000, guid: fe52e2241f916cb41a984929c24cbe5f, type: 3}
+  - {fileID: 21300000, guid: 67bd2b8570131d94b8b066e296ca6154, type: 3}
+  - {fileID: 21300000, guid: 5480d2feb1e0a094988a41e352521ecd, type: 3}
+  - {fileID: 21300000, guid: 0a314f41f04631340895bc9e98f82014, type: 3}
+  - {fileID: 21300000, guid: 6ac7f1dcf291b604d8126ade7856dfd0, type: 3}
   generator: {fileID: 389449321}
-  resourcePanels: []
-  currentResourcePanel: {fileID: 0}
+  resourcePanels:
+  - {fileID: 268570740869362385}
+  - {fileID: 268570739432943061}
+  - {fileID: 268570740368767229}
+  - {fileID: 268570740242635619}
+  - {fileID: 268570739805935015}
+  - {fileID: 268570739716223761}
+  currentResourcePanel: {fileID: 274464120544500390}
 --- !u!1 &435029358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,7 +1189,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 389449321}
         m_TargetAssemblyTypeName: TileGenerator, Assembly-CSharp
-        m_MethodName: DeleteTile
+        m_MethodName: HideTile
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1734,6 +1758,7 @@ GameObject:
   - component: {fileID: 642973750}
   - component: {fileID: 642973751}
   - component: {fileID: 642973752}
+  - component: {fileID: 642973753}
   m_Layer: 0
   m_Name: TileHolder
   m_TagString: Untagged
@@ -1757,9 +1782,9 @@ Transform:
   - {fileID: 1758627614}
   - {fileID: 130328437}
   - {fileID: 1433881598}
-  - {fileID: 1895105217}
-  - {fileID: 1471617481}
   - {fileID: 853284785}
+  - {fileID: 1471617481}
+  - {fileID: 1895105217}
   - {fileID: 820603846}
   m_Father: {fileID: 389449320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1819,6 +1844,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527fbbe72bc7a5a48b48fd86529bea1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &642973753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642973748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c53b4ec77bc6d4479f1b48fc79944fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileGenerator: {fileID: 389449321}
+  chainManager: {fileID: 389449322}
 --- !u!1 &769340095 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3096046500596487841, guid: ad4c2e30b43135f4c84918f73d1476a8, type: 3}
@@ -1932,6 +1971,30 @@ PrefabInstance:
       propertyPath: neighboursFree.Array.data[5]
       value: 
       objectReference: {fileID: 1484180939}
+    - target: {fileID: 5874797770762829976, guid: 45beae4ae128c00439663be80fcb5a52, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[0].Value
+      value: 
+      objectReference: {fileID: 1758627615}
+    - target: {fileID: 5874797770762829976, guid: 45beae4ae128c00439663be80fcb5a52, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[1].Value
+      value: 
+      objectReference: {fileID: 769340097}
+    - target: {fileID: 5874797770762829976, guid: 45beae4ae128c00439663be80fcb5a52, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[2].Value
+      value: 
+      objectReference: {fileID: 1433881599}
+    - target: {fileID: 5874797770762829976, guid: 45beae4ae128c00439663be80fcb5a52, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[3].Value
+      value: 
+      objectReference: {fileID: 1484180939}
+    - target: {fileID: 5874797770762829976, guid: 45beae4ae128c00439663be80fcb5a52, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[4].Value
+      value: 
+      objectReference: {fileID: 1471617482}
+    - target: {fileID: 5874797770762829976, guid: 45beae4ae128c00439663be80fcb5a52, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[5].Value
+      value: 
+      objectReference: {fileID: 1895105219}
     - target: {fileID: 6932691032279849793, guid: 45beae4ae128c00439663be80fcb5a52, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2096,6 +2159,18 @@ PrefabInstance:
       propertyPath: neighboursFree.Array.data[5]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 406753868974201794, guid: 555ddd538f75b0f4e86b21bb5b78243f, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[0].Value
+      value: 
+      objectReference: {fileID: 1839486867}
+    - target: {fileID: 406753868974201794, guid: 555ddd538f75b0f4e86b21bb5b78243f, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[1].Value
+      value: 
+      objectReference: {fileID: 1433881599}
+    - target: {fileID: 406753868974201794, guid: 555ddd538f75b0f4e86b21bb5b78243f, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[5].Value
+      value: 
+      objectReference: {fileID: 1471617482}
     - target: {fileID: 8463249187362706758, guid: 555ddd538f75b0f4e86b21bb5b78243f, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2882,6 +2957,18 @@ PrefabInstance:
       propertyPath: neighboursFree.Array.data[5]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1838997526179601635, guid: e6d30ed62cf5ec24c8d8cccb735e6267, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[0].Value
+      value: 
+      objectReference: {fileID: 769340097}
+    - target: {fileID: 1838997526179601635, guid: e6d30ed62cf5ec24c8d8cccb735e6267, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[4].Value
+      value: 
+      objectReference: {fileID: 1484180939}
+    - target: {fileID: 1838997526179601635, guid: e6d30ed62cf5ec24c8d8cccb735e6267, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[5].Value
+      value: 
+      objectReference: {fileID: 1839486867}
     - target: {fileID: 8278366934875561910, guid: e6d30ed62cf5ec24c8d8cccb735e6267, type: 3}
       propertyPath: m_Name
       value: Harvest Plus 1
@@ -2981,6 +3068,18 @@ PrefabInstance:
       objectReference: {fileID: 1839486867}
     - target: {fileID: 6616790438972928287, guid: ca34d4f839bb5514ab1dd4438fa921b9, type: 3}
       propertyPath: neighboursFree.Array.data[2]
+      value: 
+      objectReference: {fileID: 1484180939}
+    - target: {fileID: 6616790438972928287, guid: ca34d4f839bb5514ab1dd4438fa921b9, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[0].Value
+      value: 
+      objectReference: {fileID: 1895105219}
+    - target: {fileID: 6616790438972928287, guid: ca34d4f839bb5514ab1dd4438fa921b9, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[1].Value
+      value: 
+      objectReference: {fileID: 1839486867}
+    - target: {fileID: 6616790438972928287, guid: ca34d4f839bb5514ab1dd4438fa921b9, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[2].Value
       value: 
       objectReference: {fileID: 1484180939}
     - target: {fileID: 6820574628511928862, guid: ca34d4f839bb5514ab1dd4438fa921b9, type: 3}
@@ -3105,6 +3204,18 @@ PrefabInstance:
       propertyPath: neighboursFree.Array.data[5]
       value: 
       objectReference: {fileID: 1839486867}
+    - target: {fileID: 5668728979575293976, guid: 3de07cf527324154696310992c1fc74d, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[2].Value
+      value: 
+      objectReference: {fileID: 769340097}
+    - target: {fileID: 5668728979575293976, guid: 3de07cf527324154696310992c1fc74d, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[3].Value
+      value: 
+      objectReference: {fileID: 1839486867}
+    - target: {fileID: 5668728979575293976, guid: 3de07cf527324154696310992c1fc74d, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[4].Value
+      value: 
+      objectReference: {fileID: 1895105219}
     - target: {fileID: 5719604493310572027, guid: 3de07cf527324154696310992c1fc74d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3357,6 +3468,22 @@ PrefabInstance:
       propertyPath: neighboursFree.Array.data[5]
       value: 
       objectReference: {fileID: 1471617482}
+    - target: {fileID: 4568652394347917242, guid: 0f2831b5e1d02c24197846e2994d5a6f, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[1].Value
+      value: 
+      objectReference: {fileID: 1758627615}
+    - target: {fileID: 4568652394347917242, guid: 0f2831b5e1d02c24197846e2994d5a6f, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[2].Value
+      value: 
+      objectReference: {fileID: 1839486867}
+    - target: {fileID: 4568652394347917242, guid: 0f2831b5e1d02c24197846e2994d5a6f, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[3].Value
+      value: 
+      objectReference: {fileID: 1471617482}
+    - target: {fileID: 4568652394347917242, guid: 0f2831b5e1d02c24197846e2994d5a6f, type: 3}
+      propertyPath: neighboursFree._serializedList.Array.data[4].Value
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
