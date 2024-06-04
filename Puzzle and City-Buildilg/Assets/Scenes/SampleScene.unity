@@ -663,6 +663,7 @@ Transform:
   m_Children:
   - {fileID: 904484250}
   - {fileID: 827446796}
+  - {fileID: 894788881}
   - {fileID: 1107816703}
   - {fileID: 642973749}
   - {fileID: 435029362}
@@ -1832,6 +1833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 781853339}
   placement: {fileID: 827446797}
+  groundPlacement: {fileID: 894788880}
 --- !u!114 &642973752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2002,7 +2004,7 @@ PrefabInstance:
     - target: {fileID: 6932691032279849793, guid: 45beae4ae128c00439663be80fcb5a52, type: 3}
       propertyPath: groundTile
       value: 
-      objectReference: {fileID: 4692091254597264411, guid: 85108a810e7610047bf51a63a45070ce, type: 3}
+      objectReference: {fileID: 1130435365189726671, guid: 8f99b01ccb907e4448c7073cacba8ebd, type: 3}
     - target: {fileID: 6932691032279849793, guid: 45beae4ae128c00439663be80fcb5a52, type: 3}
       propertyPath: scoreTextPrefab
       value: 
@@ -2233,6 +2235,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8463249187362706758, guid: 555ddd538f75b0f4e86b21bb5b78243f, type: 3}
   m_PrefabInstance: {fileID: 853284784}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &894788879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 894788881}
+  - component: {fileID: 894788880}
+  m_Layer: 0
+  m_Name: GroundPlacementSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &894788880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894788879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a84920fcd94a44c9f1f6c8d7abc461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchIndicator: {fileID: 0}
+  inputManager: {fileID: 904484249}
+  grid: {fileID: 1774433435}
+  generator: {fileID: 389449321}
+  starterTiles: []
+  tileGrid: {fileID: 642973752}
+--- !u!4 &894788881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894788879}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 389449320}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &904484248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2580,7 +2632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileGenerator: {fileID: 389449321}
-  chainManager: {fileID: 0}
+  chainManager: {fileID: 642973750}
 --- !u!4 &1262824384
 Transform:
   m_ObjectHideFlags: 0
@@ -3935,8 +3987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1a0f92699328743bfc1c55bcfb4a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentResourceImage: {fileID: 0}
-  currentScore: {fileID: 0}
+  currentResourceImage: {fileID: 274464119669793075}
+  currentScore: {fileID: 274464119210369104}
   type: forest
   sprite: {fileID: 21300000, guid: fe52e2241f916cb41a984929c24cbe5f, type: 3}
 --- !u!114 &268570739432943049
@@ -4240,8 +4292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1a0f92699328743bfc1c55bcfb4a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentResourceImage: {fileID: 0}
-  currentScore: {fileID: 0}
+  currentResourceImage: {fileID: 274464119669793075}
+  currentScore: {fileID: 274464119210369104}
   type: water
   sprite: {fileID: 21300000, guid: 6ac7f1dcf291b604d8126ade7856dfd0, type: 3}
 --- !u!114 &268570739716223765
@@ -4617,8 +4669,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1a0f92699328743bfc1c55bcfb4a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentResourceImage: {fileID: 0}
-  currentScore: {fileID: 0}
+  currentResourceImage: {fileID: 274464119669793075}
+  currentScore: {fileID: 274464119210369104}
   type: services
   sprite: {fileID: 21300000, guid: 0a314f41f04631340895bc9e98f82014, type: 3}
 --- !u!224 &268570739805935014
@@ -5039,8 +5091,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1a0f92699328743bfc1c55bcfb4a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentResourceImage: {fileID: 0}
-  currentScore: {fileID: 0}
+  currentResourceImage: {fileID: 274464119669793075}
+  currentScore: {fileID: 274464119210369104}
   type: house
   sprite: {fileID: 21300000, guid: 5480d2feb1e0a094988a41e352521ecd, type: 3}
 --- !u!114 &268570740242635623
@@ -5248,8 +5300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1a0f92699328743bfc1c55bcfb4a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentResourceImage: {fileID: 0}
-  currentScore: {fileID: 0}
+  currentResourceImage: {fileID: 274464119669793075}
+  currentScore: {fileID: 274464119210369104}
   type: harvest
   sprite: {fileID: 21300000, guid: 67bd2b8570131d94b8b066e296ca6154, type: 3}
 --- !u!224 &268570740368767228
@@ -6113,7 +6165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65140cd983f33d4bacb3c5664a220bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcesPanel: {fileID: 0}
+  resourcesPanel: {fileID: 268570740319018993}
 --- !u!114 &274464120544500387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6755,7 +6807,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 642973750}
         m_TargetAssemblyTypeName: ChainManager, Assembly-CSharp
         m_MethodName: OnButtonYes
         m_Mode: 1
@@ -7209,7 +7261,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 642973750}
         m_TargetAssemblyTypeName: ChainManager, Assembly-CSharp
         m_MethodName: OnButtonNo
         m_Mode: 1
