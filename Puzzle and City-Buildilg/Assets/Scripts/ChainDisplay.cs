@@ -34,5 +34,4 @@ public class ChainDisplay : MonoBehaviour
     {
         chainScore.gameObject.SetActive(show);
     }
-    // if it is the last placed tile in chain - open 
 }
