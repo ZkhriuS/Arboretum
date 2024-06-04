@@ -14,10 +14,10 @@ public class PlacementSystem : MonoBehaviour
 {
     [SerializeField] private GameObject touchIndicator;
     [SerializeField] private InputManager inputManager;
-    [SerializeField] private Grid grid;
+    [SerializeField] protected Grid grid;
     [SerializeField] private TileGenerator generator;
     [SerializeField] private List<GameObject> starterTiles;
-    [SerializeField] private TileObjectGrid tileGrid;
+    [SerializeField] protected TileObjectGrid tileGrid;
 
     private void Start()
     {

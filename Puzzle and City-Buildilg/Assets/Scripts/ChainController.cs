@@ -49,6 +49,8 @@ public class ChainController : MonoBehaviour
             {
                 Vector3 tilePosition = item.gameObject.transform.position;
                 GameObject tile = Instantiate(groundTile, item.GetComponentInParent<TileHolder>().gameObject.transform);
+                TileHolder tileHolder = gameObject.GetComponentInParent<TileHolder>();
+                tileHolder.UpdateGrid(item.GetComponent<Tile>().gameObject, tile);
                 tile.transform.position = tilePosition;
                 tile.GetComponent<NeighbourController>().neighboursFree = item.gameObject.GetComponent<NeighbourController>().neighboursFree;
                 tile.GetComponent<GroundTile>().SetNeighbours(item.GetComponent<ResourceTile>());
