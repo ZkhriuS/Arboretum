@@ -153,7 +153,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 1
   groundTile: {fileID: 6398189713374727025, guid: f0759ca79668a4f4b95e6a85d80d8289, type: 3}
-  scoreTextPrefab: {fileID: 4894337714451480726, guid: 61eaf4c9c8d01c24f8086ce5c9114d9b, type: 3}
   chain: []
 --- !u!114 &1036684683386616727
 MonoBehaviour:
@@ -168,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chainController: {fileID: 6616432301949135169}
-  chainScore: {fileID: 5658000586209731475}
+  chainScore: {fileID: 6362954979851440091}
 --- !u!114 &996270564484598979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,17 +298,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec2608b3169f0eb45b87f8629fabadbf, type: 3}
---- !u!114 &5658000586209731475 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1873143196938384145, guid: ec2608b3169f0eb45b87f8629fabadbf, type: 3}
-  m_PrefabInstance: {fileID: 6303909586055729282}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &6362954979851440091 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1096131218112585561, guid: ec2608b3169f0eb45b87f8629fabadbf, type: 3}

@@ -7,7 +7,7 @@ public class ChainDisplay : MonoBehaviour
 {
     public ChainController chainController;
     [Space]
-    public TextMeshProUGUI chainScore;
+    public RectTransform chainScore;
 
     private void OnEnable()
     {
@@ -26,7 +26,7 @@ public class ChainDisplay : MonoBehaviour
             chainDisplay.ShowScore(false);
         }
 
-        chainScore.text = chainController.score.ToString();
+        chainScore.GetComponentInChildren<TextMeshProUGUI>().text = chainController.score.ToString();
         ShowScore(true);
     }
 
