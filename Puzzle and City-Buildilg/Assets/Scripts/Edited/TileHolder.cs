@@ -1,23 +1,27 @@
+using Tiles;
 using UnityEngine;
 
 namespace Edited
 {
     public class TileHolder : MonoBehaviour
     {
-        private GameObject _bonusTileForApply;
+        private GameObject _tileForApply;
         [SerializeField] private GameManager gameManager;
         [SerializeField] private PlacementSystem placement;
         [SerializeField] private GroundPlacementSystem groundPlacement;
         public void Apply()
         {
-            if (_bonusTileForApply != null)
+            if (_tileForApply != null)
             {
-                BonusTile bonusTile = _bonusTileForApply.GetComponent<BonusTile>();
-                if (bonusTile)
+                if (_tileForApply.TryGetComponent(out BonusTile bonusTile))
                 {
-                    //bonusTile.SetBaseTile();
                     placement.SetTile(bonusTile);
                     placement.ResetTouchIndicator();
+                    gameManager.ChangeTileSetMode();
+                } else if (_tileForApply.TryGetComponent(out GroundTile groundTile))
+                {
+                    groundPlacement.SetTile(groundTile);
+                    groundPlacement.ResetTouchIndicator();
                     gameManager.ChangeTileSetMode();
                 }
             }
@@ -25,7 +29,7 @@ namespace Edited
         }
         public void SetTriggeredBonusTile(GameObject other)
         {
-            _bonusTileForApply = other;
+            _tileForApply = other;
         }
 
         public void UpdateGrid(GameObject tile, GameObject ground)

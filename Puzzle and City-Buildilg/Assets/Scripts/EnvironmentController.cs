@@ -17,19 +17,13 @@ public class EnvironmentController : MonoBehaviour
     private float personDamage;
     [SerializeField]
     private Button generatorButton;
-    // Start is called before the first frame update
+    
     void Start()
     {
         indicator = 100;
         indicImage.fillAmount = 1;
         indicValue.text = "100%";
         TileGenerator.TilePeopleArrived += ChangeIndicator;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void ChangeIndicator(int people)

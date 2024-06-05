@@ -2,24 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
+using Tiles;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class NeighbourController : MonoBehaviour
 {
-    public SerializedDictionary<Neighbours, Tile> neighboursFree = new ()
+    [FormerlySerializedAs("neighboursFree")]
+    public SerializedDictionary<Neighbour, Tile> neighbours = new ()
     {
-        {Neighbours.UP_LEFT, null},
-        {Neighbours.UP_CENTER, null},
-        {Neighbours.UP_RIGHT, null},
-        {Neighbours.DOWN_RIGHT, null},
-        {Neighbours.DOWN_CENTER, null},
-        {Neighbours.DOWN_LEFT, null},
+        {Neighbour.UP_LEFT, null},
+        {Neighbour.UP_CENTER, null},
+        {Neighbour.UP_RIGHT, null},
+        {Neighbour.DOWN_RIGHT, null},
+        {Neighbour.DOWN_CENTER, null},
+        {Neighbour.DOWN_LEFT, null},
     };
     
-    // public List<Tile> neighboursFree = new (new Tile[LENGTH]);
-
-    public void SetNeighbour(Neighbours neighbour, Tile target)
+    public void SetNeighbour(Neighbour neighbour, Tile target)
     {
-        neighboursFree[neighbour] = target;
+        neighbours[neighbour] = target;
     }
 }

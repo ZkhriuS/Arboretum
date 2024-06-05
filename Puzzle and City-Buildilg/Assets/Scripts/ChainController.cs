@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Edited;
+using Tiles;
 
 public class ChainController : MonoBehaviour
 {
@@ -20,13 +21,13 @@ public class ChainController : MonoBehaviour
         chain.Add(gameObject.GetComponent<ChainController>());
         ResourceTile tile = gameObject.GetComponent<ResourceTile>();
         NeighbourController tileNeighbourC = gameObject.GetComponent<NeighbourController>();
-        foreach (Neighbours i in Enum.GetValues(typeof(Neighbours)))
+        foreach (Neighbour i in Enum.GetValues(typeof(Neighbour)))
         {
-            if (tileNeighbourC.neighboursFree[i])
+            if (tileNeighbourC.neighbours[i])
             {
-                if (tileNeighbourC.neighboursFree[i].GetComponent<ResourceTile>() && tile.type.Equals(tileNeighbourC.neighboursFree[i].type))
+                if (tileNeighbourC.neighbours[i].GetComponent<ResourceTile>() && tile.type.Equals(tileNeighbourC.neighbours[i].type))
                 {
-                    foreach(var item in tileNeighbourC.neighboursFree[i].GetComponent<ChainController>().chain)
+                    foreach(var item in tileNeighbourC.neighbours[i].GetComponent<ChainController>().chain)
                     {
                         if (!chain.Contains(item))
                         {
@@ -52,7 +53,7 @@ public class ChainController : MonoBehaviour
                 TileHolder tileHolder = gameObject.GetComponentInParent<TileHolder>();
                 tileHolder.UpdateGrid(item.GetComponent<Tile>().gameObject, tile);
                 tile.transform.position = tilePosition;
-                tile.GetComponent<NeighbourController>().neighboursFree = item.gameObject.GetComponent<NeighbourController>().neighboursFree;
+                tile.GetComponent<NeighbourController>().neighbours = item.gameObject.GetComponent<NeighbourController>().neighbours;
                 tile.GetComponent<GroundTile>().SetNeighbours(item.GetComponent<ResourceTile>());
                 ground.Add(tile.GetComponent<GroundTile>());
                 Destroy(item.gameObject);
@@ -65,7 +66,7 @@ public class ChainController : MonoBehaviour
     {
         var tileType = GetComponent<ResourceTile>().type;
 
-        foreach (var neighbour in GetComponent<NeighbourController>().neighboursFree)
+        foreach (var neighbour in GetComponent<NeighbourController>().neighbours)
         {
             if (neighbour.Value == null) continue;
 

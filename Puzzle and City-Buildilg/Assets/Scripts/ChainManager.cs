@@ -17,7 +17,6 @@ public class ChainManager : MonoBehaviour
     [SerializeField] private TileGenerator generator;
     private ChainController chainController;
     public GameObject[] resourcePanels;
-    public GameObject currentResourcePanel;
     public static Action<string, string> OnResourceUpdate;
     private bool isInfoOpen;
     // Start is called before the first frame update
