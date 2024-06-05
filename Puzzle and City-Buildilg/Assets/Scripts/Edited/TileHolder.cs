@@ -7,6 +7,7 @@ namespace Edited
         private GameObject _bonusTileForApply;
         [SerializeField] private GameManager gameManager;
         [SerializeField] private PlacementSystem placement;
+        [SerializeField] private GroundPlacementSystem groundPlacement;
         public void Apply()
         {
             if (_bonusTileForApply != null)
@@ -25,6 +26,11 @@ namespace Edited
         public void SetTriggeredBonusTile(GameObject other)
         {
             _bonusTileForApply = other;
+        }
+
+        public void UpdateGrid(GameObject tile, GameObject ground)
+        {
+            groundPlacement.UpdateGroundGrid(tile, ground);
         }
     }
 }

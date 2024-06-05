@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 3234693684927712652}
   - component: {fileID: 1130435365189726669}
   - component: {fileID: 9090937404074320597}
-  - component: {fileID: 3098468951002953938}
   - component: {fileID: 2515375964511917549}
-  - component: {fileID: 3649226595110949064}
+  - component: {fileID: 9035134317424362966}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Tile
@@ -135,24 +134,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3098468951002953938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130435365189726671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b572fc3a48b20144aaf246abfc721c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 1
-  groundTile: {fileID: 6398189713374727025, guid: f0759ca79668a4f4b95e6a85d80d8289, type: 3}
-  scoreTextPrefab: {fileID: 4894337714451480726, guid: 61eaf4c9c8d01c24f8086ce5c9114d9b, type: 3}
-  chain: []
 --- !u!114 &2515375964511917549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,13 +149,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighboursFree:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &3649226595110949064
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 0}
+    - Key: 1
+      Value: {fileID: 0}
+    - Key: 2
+      Value: {fileID: 0}
+    - Key: 5
+      Value: {fileID: 0}
+    - Key: 4
+      Value: {fileID: 0}
+    - Key: 3
+      Value: {fileID: 0}
+--- !u!114 &9035134317424362966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,9 +171,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1130435365189726671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f1796633d3ef7743a976099b228c99c, type: 3}
+  m_Script: {fileID: 11500000, guid: fd893c90601b0ff48aee1fb234093b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGrounded: 0
-  type: water
-  colliderSize: {x: 1.110283, y: 2.199705, z: 1}
+  isGrounded: 1
+  type: 

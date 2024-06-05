@@ -14,10 +14,10 @@ public class PlacementSystem : MonoBehaviour
 {
     [SerializeField] private GameObject touchIndicator;
     [SerializeField] private InputManager inputManager;
-    [SerializeField] private Grid grid;
+    [SerializeField] protected Grid grid;
     [SerializeField] private TileGenerator generator;
     [SerializeField] private List<GameObject> starterTiles;
-    [SerializeField] private TileObjectGrid tileGrid;
+    [SerializeField] protected TileObjectGrid tileGrid;
 
     private void Start()
     {
@@ -96,7 +96,9 @@ public class PlacementSystem : MonoBehaviour
     private Tile HitTile(Vector3Int origin)
     {
         TileObject tileObject = tileGrid.FindTileObject(origin);
-        return tileObject?.GetTileObject().GetComponent<Tile>();
+        if (tileObject!=null)
+            return tileObject.GetTileObject().GetComponent<Tile>(); 
+        return null;
     }
 
     private void ScanTilesAround(Vector3Int cell, NeighbourController tile)
