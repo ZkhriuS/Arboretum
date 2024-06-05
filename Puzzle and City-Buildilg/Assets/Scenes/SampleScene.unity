@@ -1937,6 +1937,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 642973749}
     m_Modifications:
+    - target: {fileID: 235284704826001629, guid: 45beae4ae128c00439663be80fcb5a52, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742184165056628044, guid: 45beae4ae128c00439663be80fcb5a52, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4509376031127756202, guid: 45beae4ae128c00439663be80fcb5a52, type: 3}
       propertyPath: m_Enabled
       value: 1
