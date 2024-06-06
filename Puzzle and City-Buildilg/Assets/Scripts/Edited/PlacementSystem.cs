@@ -12,8 +12,8 @@ using GameObject = UnityEngine.GameObject;
 
 public class PlacementSystem : MonoBehaviour
 {
-    [SerializeField] private GameObject touchIndicator;
-    [SerializeField] private InputManager inputManager;
+    [SerializeField] protected GameObject touchIndicator;
+    [SerializeField] protected InputManager inputManager;
     [SerializeField] protected Grid grid;
     [SerializeField] private TileGenerator generator;
     [SerializeField] private List<GameObject> starterTiles;

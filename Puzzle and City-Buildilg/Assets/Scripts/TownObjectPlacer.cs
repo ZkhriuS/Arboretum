@@ -57,7 +57,7 @@ public class TownObjectPlacer : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
+    /*private void OnMouseEnter()
     {
         Camera.main.GetComponentInChildren<MouseCameraDrag>().enabled = false;
     }
@@ -65,7 +65,7 @@ public class TownObjectPlacer : MonoBehaviour
     private void OnMouseExit()
     {
         Camera.main.GetComponentInChildren<MouseCameraDrag>().enabled = true;
-    }
+    }*/
 
     public void RotateTownObject(int direction)
     {
