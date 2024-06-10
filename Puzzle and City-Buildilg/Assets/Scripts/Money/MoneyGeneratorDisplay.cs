@@ -33,11 +33,12 @@ namespace Money
             moneyGenerator.OnMoneyCollect -= MoneyCollect;
         }
 
-        public void Interact()
+        public void Interact(MoneyCollector collector)
         {
             if (_canStartGenerator) moneyGenerator.StartGenerate();
             
-            moneyGenerator.CollectMoney();
+            if(moneyGenerator.CollectMoney())
+                collector.CollectMoney(gameObject.GetComponent<MoneyGenerator>());
         }
 
         private void ShowTimer()
@@ -56,5 +57,6 @@ namespace Money
         {
             _canStartGenerator = true;
         }
+        
     }
 }

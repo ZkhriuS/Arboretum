@@ -8,6 +8,7 @@ namespace Edited
         [SerializeField] private GameManager gameManager;
         [SerializeField] private PlacementSystem placement;
         [SerializeField] private GroundPlacementSystem groundPlacement;
+        [SerializeField] private PeopleOperator peopleOperator;
         public void Apply()
         {
             if (_bonusTileForApply != null)
@@ -19,6 +20,7 @@ namespace Edited
                     placement.SetTile(bonusTile);
                     placement.ResetTouchIndicator();
                     gameManager.ChangeTileSetMode();
+                    peopleOperator.PeopleArrive();
                 }
             }
             

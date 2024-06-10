@@ -23,12 +23,6 @@ public class TileGenerator : MonoBehaviour
     private GameObject _newTile;
     private GameObject _childTile;
     private Neighbours _startAngleNeighbours;
-    public static event Action<int> TilePeopleArrived;
-
-    [SerializeField]
-    private int minPeople;
-    [SerializeField]
-    private int maxPeople;
 
     void Start()
     {
@@ -338,7 +332,6 @@ public class TileGenerator : MonoBehaviour
     {
         GameObject tile = Instantiate(_newTile, holder.transform);
         tile.transform.position = position;
-        TilePeopleArrived?.Invoke(UnityEngine.Random.Range(minPeople, maxPeople));
         Destroy(_newTile.gameObject);
         return tile;
     }

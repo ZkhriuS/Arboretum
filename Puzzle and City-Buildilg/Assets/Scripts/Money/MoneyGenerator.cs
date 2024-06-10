@@ -67,13 +67,14 @@ namespace Money
             OnMoneyReady?.Invoke(false);
         }
         
-        public void CollectMoney()
+        public bool CollectMoney()
         {
-            if (!_canCollect) return;
+            if (!_canCollect) return false;
             
             money.Value += moneyForGenerate;
             OnMoneyCollect?.Invoke(moneyForGenerate);
             Reload();
+            return true;
         }
     }
 }

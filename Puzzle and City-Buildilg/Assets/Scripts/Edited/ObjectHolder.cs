@@ -7,6 +7,10 @@ public class ObjectHolder : MonoBehaviour
     private GameObject _townObject;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private ObjectPlacementSystem placement;
+
+    [SerializeField] private MoneyOperator moneyOperator;
+
+    [SerializeField] private List<MoneyOperator> resourcesOperators;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +39,11 @@ public class ObjectHolder : MonoBehaviour
                 placement.SetTownObject(_townObject);
                 placement.ResetTouchIndicator();
                 gameManager.ChangeTileSetMode();
+                moneyOperator.PayMoney();
+                foreach (var resourcesOperator in resourcesOperators)
+                {
+                    resourcesOperator.PayMoney();
+                }
             }
         }
             

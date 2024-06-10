@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TownObjectController : MonoBehaviour
 {
+    public static event Action<float> TownObjectPlaced;
+    [SerializeField] private float damage;
     private bool placeAvailable;
     private bool isPlaced;
 
@@ -55,6 +57,7 @@ public class TownObjectController : MonoBehaviour
     private bool HaveTriggeredGround()
     {
         placeAvailable = true;
+        //if (triggered.Count == 0) return false;
         foreach (var obj in triggered)
         {
             placeAvailable = placeAvailable && obj.GetComponent<GroundTile>();
@@ -66,5 +69,6 @@ public class TownObjectController : MonoBehaviour
     public void SetPlaced()
     {
         isPlaced = true;
+        TownObjectPlaced?.Invoke(damage);
     }
 }
