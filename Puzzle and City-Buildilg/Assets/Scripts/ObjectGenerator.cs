@@ -22,6 +22,7 @@ public class ObjectGenerator : MonoBehaviour
     public void  GenerateTownObject(int index)
     {
         _newObject = Instantiate(townObjectsPrefabs[index], town.transform);
+        _newObject.transform.localPosition = Vector3.zero;
         holder.SetTownObject(_newObject);
         
     }

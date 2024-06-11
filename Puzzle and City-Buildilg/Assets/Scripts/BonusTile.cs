@@ -10,14 +10,15 @@ public class BonusTile : Tile
     public char typeBonus;
     public Color error;
     public Color correct;
+    [SerializeField] private int oldSort;
+    [SerializeField] private int newSort;
+    
+    private void Update()
+    {
+        renderer.sortingOrder = (isGrounded) ? newSort : oldSort;
+    }
     // Start is called before the first frame update
     void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }

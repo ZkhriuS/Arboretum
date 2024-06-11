@@ -208,6 +208,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrounded: 0
   type: factory
+  renderer: {fileID: 4705072555752780320}
+  oldSort: 3
+  newSort: 2
 --- !u!1001 &4462390998692086083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,11 +281,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1096131218112585561, guid: ec2608b3169f0eb45b87f8629fabadbf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0.11
       objectReference: {fileID: 0}
     - target: {fileID: 1096131218112585561, guid: ec2608b3169f0eb45b87f8629fabadbf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.5
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 1096131218112585561, guid: ec2608b3169f0eb45b87f8629fabadbf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.EventSystems;
 
 public class ChainManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class ChainManager : MonoBehaviour
     [SerializeField] private TileGenerator generator;
     private ChainController chainController;
     public GameObject[] resourcePanels;
-    public GameObject currentResourcePanel;
+    public TextMeshProUGUI currentResourcePanel;
     public static Action<string, string> OnResourceUpdate;
     private bool isInfoOpen;
     // Start is called before the first frame update
@@ -31,19 +32,22 @@ public class ChainManager : MonoBehaviour
     {
         if (!generator.IsOtherActionBlocked() && !isInfoOpen)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (!EventSystem.current.IsPointerOverGameObject())
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, float.MaxValue))
+                if (Input.GetMouseButtonDown(0))
                 {
-                    ChainController temp = hit.collider.gameObject.GetComponent<ChainController>();
-                    if (temp)
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, float.MaxValue))
                     {
-                        chainController = temp;
-                        isInfoOpen = true;
-                        Info();
-                        chainPanel.SetActive(true);
+                        ChainController temp = hit.collider.gameObject.GetComponent<ChainController>();
+                        if (temp)
+                        {
+                            chainController = temp;
+                            isInfoOpen = true;
+                            Info();
+                            chainPanel.SetActive(true);
+                        }
                     }
                 }
             }
@@ -101,37 +105,61 @@ public class ChainManager : MonoBehaviour
                 {
                     value = resourcePanels[0].GetComponentInChildren<TextMeshProUGUI>();
                     value.text = (int.Parse(value.text) + score).ToString();
-
+                    if (CurrentClick.type.Equals(type))
+                    {
+                        currentResourcePanel.text = value.text;
+                    }
                 }
                 break;
             case "forest":
                 {
                     value = resourcePanels[1].GetComponentInChildren<TextMeshProUGUI>();
                     value.text = (int.Parse(value.text) + score).ToString();
+                    if (CurrentClick.type.Equals(type))
+                    {
+                        currentResourcePanel.text = value.text;
+                    }
                 }
                 break;
             case "harvest":
                 {
                     value = resourcePanels[2].GetComponentInChildren<TextMeshProUGUI>();
                     value.text = (int.Parse(value.text) + score).ToString();
+                    if (CurrentClick.type.Equals(type))
+                    {
+                        currentResourcePanel.text = value.text;
+                    }
                 }
                 break;
             case "house":
                 {
                     value = resourcePanels[3].GetComponentInChildren<TextMeshProUGUI>();
                     value.text = (int.Parse(value.text) + score).ToString();
+                    Debug.Log(value);
+                    if (CurrentClick.type.Equals(type))
+                    {
+                        currentResourcePanel.text = value.text;
+                    }
                 }
                 break;
             case "services":
                 {
                     value = resourcePanels[4].GetComponentInChildren<TextMeshProUGUI>();
                     value.text = (int.Parse(value.text) + score).ToString();
+                    if (CurrentClick.type.Equals(type))
+                    {
+                        currentResourcePanel.text = value.text;
+                    }
                 }
                 break;
             case "water":
                 {
                     value = resourcePanels[5].GetComponentInChildren<TextMeshProUGUI>();
                     value.text = (int.Parse(value.text) + score).ToString();
+                    if (CurrentClick.type.Equals(type))
+                    {
+                        currentResourcePanel.text = value.text;
+                    }
                 }
                 break;
         }

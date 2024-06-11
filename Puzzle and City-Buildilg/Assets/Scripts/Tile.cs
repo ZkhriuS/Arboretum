@@ -6,6 +6,7 @@ public abstract class Tile : MonoBehaviour
 {
     public bool isGrounded;
     public string type;
+    [SerializeField] protected SpriteRenderer renderer;
     
     public Neighbours GetOppositeIndex(Neighbours side)
     {

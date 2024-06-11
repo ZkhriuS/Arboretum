@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5770110802001703558}
   - component: {fileID: 8282187608218984772}
   - component: {fileID: 824098617621349120}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 7257459533992017861}
   - component: {fileID: 5872285148493895829}
   - component: {fileID: 1995301132429711938}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tree 2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 1505332756311472740}
   - component: {fileID: 6671566200810370293}
   - component: {fileID: 5630880437210851649}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tree 2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 483478699094515045}
   - component: {fileID: 9166052097370119457}
   - component: {fileID: 6254088405668842398}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 99798333841662348}
   - component: {fileID: 2943633184544740044}
   - component: {fileID: 2662020447006972140}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.005 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 4900855931753027742}
   - component: {fileID: 3684498067905511987}
   - component: {fileID: 1989140112177305207}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: wood (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 289865389192962467}
   - component: {fileID: 3134612349469886961}
   - component: {fileID: 384782575494216841}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 7085593959334270878}
   - component: {fileID: 5189411490141722785}
   - component: {fileID: 4755546726726064408}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.002 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -860,7 +860,7 @@ GameObject:
   - component: {fileID: 7729122809187066544}
   - component: {fileID: 5747196754973609299}
   - component: {fileID: 1147452755994262180}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 2861305658231369631}
   - component: {fileID: 4810617674479820392}
   - component: {fileID: 5938198236955327257}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.004 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 7425056710348714712}
   - component: {fileID: 6927642321118435011}
   - component: {fileID: 3275756023573049685}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.004 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 2933541230155115119}
   - component: {fileID: 5536548280576689970}
   - component: {fileID: 1447627808348818641}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1284,7 +1284,7 @@ GameObject:
   - component: {fileID: 5312405962489861811}
   - component: {fileID: 8673310560970694523}
   - component: {fileID: 4068278909465824185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tree 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1391,7 +1391,7 @@ GameObject:
   - component: {fileID: 52149026248627009}
   - component: {fileID: 8236161800302054254}
   - component: {fileID: 5415983637371780724}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mushroom 2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1497,7 +1497,7 @@ GameObject:
   - component: {fileID: 7865157324775164125}
   - component: {fileID: 6211183905611066100}
   - component: {fileID: 5474086133865292210}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mushroom 2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1603,7 +1603,7 @@ GameObject:
   - component: {fileID: 8511668869398793079}
   - component: {fileID: 8408579673362545962}
   - component: {fileID: 4865077945194260411}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.001 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1709,7 +1709,7 @@ GameObject:
   - component: {fileID: 4701789115845597277}
   - component: {fileID: 5657620312129984759}
   - component: {fileID: 7075775388959541465}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1815,7 +1815,7 @@ GameObject:
   - component: {fileID: 5883979746192298239}
   - component: {fileID: 6213783168185589153}
   - component: {fileID: 1360618140324180597}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1921,7 +1921,7 @@ GameObject:
   - component: {fileID: 3562652568169502985}
   - component: {fileID: 3775157459512388779}
   - component: {fileID: 1071273493999029285}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2027,7 +2027,7 @@ GameObject:
   - component: {fileID: 4858233839362573062}
   - component: {fileID: 4165554086101108357}
   - component: {fileID: 1734541446198656748}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Forest_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2063,6 +2063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: -9.3
+  isPlaced: 0
 --- !u!64 &4165554086101108357
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2124,7 +2125,7 @@ GameObject:
   - component: {fileID: 5093001149160665536}
   - component: {fileID: 7622525977428029475}
   - component: {fileID: 4305184571032322938}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rock 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2227,7 +2228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1462539992182114933}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

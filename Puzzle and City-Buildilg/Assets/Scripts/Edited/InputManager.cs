@@ -59,4 +59,9 @@ public class InputManager : MonoBehaviour
         float delta = (minScale - maxScale);
         sceneCamera.orthographicSize = maxScale+delta * (1-scaling.value);
     }
+
+    public void ResetMapPosition()
+    {
+        lastPosition = new Vector3(0, 0, 20);
+    }
 }

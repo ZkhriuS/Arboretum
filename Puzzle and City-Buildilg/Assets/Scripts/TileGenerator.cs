@@ -323,8 +323,6 @@ public class TileGenerator : MonoBehaviour
                 break;
             }
         }
-
-        Debug.Log(_startAngleNeighbours);
     }
 
 

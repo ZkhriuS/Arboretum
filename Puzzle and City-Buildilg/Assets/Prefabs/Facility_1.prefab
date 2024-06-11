@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3089604521874277220}
   - component: {fileID: 7997946833772306143}
   - component: {fileID: 7687669802344358042}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_Restaurant1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyGenerator: {fileID: 7997946833772306143}
+  controller: {fileID: 609411119043565022}
   timerDisplay: {fileID: 4019972128352951323}
   moneyDisplay: {fileID: 7875692672745618573}
 --- !u!1 &5662138648512185008
@@ -167,7 +168,7 @@ GameObject:
   - component: {fileID: 609411119043565022}
   - component: {fileID: 6182016891015272192}
   - component: {fileID: 8726100891183259041}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Facility_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1.6
+  isPlaced: 0
 --- !u!64 &6182016891015272192
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -264,7 +266,7 @@ GameObject:
   - component: {fileID: 2693425351299085163}
   - component: {fileID: 8030376514393665662}
   - component: {fileID: 3476781046764612985}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.001 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,6 +373,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI
       objectReference: {fileID: 0}
+    - target: {fileID: 119541983575705548, guid: c24153f83376ba24597cad7adb62528a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510734555706429458, guid: c24153f83376ba24597cad7adb62528a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172341977432970223, guid: c24153f83376ba24597cad7adb62528a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3330605249316582105, guid: c24153f83376ba24597cad7adb62528a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -378,6 +392,10 @@ PrefabInstance:
     - target: {fileID: 3330605249316582105, guid: c24153f83376ba24597cad7adb62528a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378458730604715809, guid: c24153f83376ba24597cad7adb62528a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5858302547406772318, guid: c24153f83376ba24597cad7adb62528a, type: 3}
       propertyPath: timer
@@ -474,6 +492,10 @@ PrefabInstance:
     - target: {fileID: 7603521510831927893, guid: c24153f83376ba24597cad7adb62528a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915000418128994420, guid: c24153f83376ba24597cad7adb62528a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

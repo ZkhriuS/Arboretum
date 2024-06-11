@@ -7,6 +7,7 @@ using UnityEngine;
 public class TradeManager : MonoBehaviour
 {
     [SerializeField] private List<TextMeshProUGUI> resources;
+    [SerializeField] private TextMeshProUGUI currentResource;
 
     [SerializeField] private List<TradeOperator> operators;
     [SerializeField] private List<TradeOperator> activeTrades;
@@ -69,12 +70,18 @@ public class TradeManager : MonoBehaviour
         TextMeshProUGUI temp = resources[(int) trade.GetDemand()];
         int value = int.Parse(temp.text);
         if (value < trade.GetDemandCount()) return false;
+        ResourcesClick resourcePanelDemand = temp.gameObject.GetComponentInParent<ResourcesClick>();
         value -= trade.GetDemandCount();
         temp.text = value.ToString();
+        if (CurrentClick.type.Equals(resourcePanelDemand.type)) 
+            currentResource.text = temp.text;
         temp = resources[(int) trade.GetOffer()];
+        ResourcesClick resourcePanelOffer = temp.gameObject.GetComponentInParent<ResourcesClick>();
         value = int.Parse(temp.text);
         value += trade.GetOfferCount();
         temp.text = value.ToString();
+        if (CurrentClick.type.Equals(resourcePanelOffer.type)) 
+            currentResource.text = temp.text;
         return true;
     }
 }

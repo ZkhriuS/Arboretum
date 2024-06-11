@@ -6,7 +6,7 @@ using System;
 
 public class GroundTile : Tile
 {
-    private bool isFree;
+    public bool isFree;
     private bool isSetMode;
     public static Action<int> OnEnterGround;
     public static Action<int> OnExitGround;

@@ -51,4 +51,9 @@ public class MoneyOperator : MonoBehaviour
         value = price;
     }
     
+    public TextMeshProUGUI GetResourceText()
+    {
+        return moneyText;
+    }
+    
 }

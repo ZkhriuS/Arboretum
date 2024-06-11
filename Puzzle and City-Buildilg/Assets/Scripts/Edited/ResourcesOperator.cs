@@ -48,4 +48,6 @@ public class ResourcesOperator : MonoBehaviour
     {
         value = price;
     }
+
+    
 }

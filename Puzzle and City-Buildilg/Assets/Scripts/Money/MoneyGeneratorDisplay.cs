@@ -7,6 +7,7 @@ namespace Money
     public class MoneyGeneratorDisplay : MonoBehaviour
     {
         public MoneyGenerator moneyGenerator;
+        public TownObjectController controller;
         [Space]
         public RectTransform timerDisplay;
         public RectTransform moneyDisplay;
@@ -17,6 +18,12 @@ namespace Money
         {
             timerDisplay.gameObject.SetActive(false);
             moneyDisplay.gameObject.SetActive(false);
+        }
+
+        private void Update()
+        {
+            if (!controller.IsPlaced())
+                _canStartGenerator = false;
         }
 
         private void OnEnable()

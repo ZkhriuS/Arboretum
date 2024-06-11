@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ObjectHolder : MonoBehaviour
@@ -11,6 +12,8 @@ public class ObjectHolder : MonoBehaviour
     [SerializeField] private MoneyOperator moneyOperator;
 
     [SerializeField] private List<MoneyOperator> resourcesOperators;
+
+    [SerializeField] private TextMeshProUGUI currentResource;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,10 @@ public class ObjectHolder : MonoBehaviour
                 foreach (var resourcesOperator in resourcesOperators)
                 {
                     resourcesOperator.PayMoney();
+                    if (CurrentClick.type.Equals(resourcesOperator.gameObject.GetComponent<ResourcesClick>().type))
+                    {
+                        currentResource.text = resourcesOperator.GetResourceText().text;
+                    }
                 }
             }
         }

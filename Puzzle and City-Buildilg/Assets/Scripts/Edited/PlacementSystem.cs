@@ -46,6 +46,10 @@ public class PlacementSystem : MonoBehaviour
             Vector3Int gridPosition = grid.WorldToCell(touchPosition);
             touchIndicator.transform.position = grid.CellToWorld(gridPosition);
         }
+        else
+        {
+            inputManager.ResetMapPosition();
+        }
     }
 
     public void ResetTouchIndicator()

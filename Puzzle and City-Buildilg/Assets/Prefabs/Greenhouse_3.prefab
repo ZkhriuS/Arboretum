@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5533643890259636097}
   - component: {fileID: 1715588134658425074}
   - component: {fileID: 6882771959290146523}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rock 1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 3446598488298973489}
   - component: {fileID: 1339711792312797359}
   - component: {fileID: 3972922769289366065}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 7116993428210995342}
   - component: {fileID: 1025654348139698609}
   - component: {fileID: 7866299654941933361}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.004 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 5024599299564128146}
   - component: {fileID: 7642245363422499805}
   - component: {fileID: 6463361230894762179}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.003 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 1453182123964445887}
   - component: {fileID: 1609077134638292478}
   - component: {fileID: 8528758840564035132}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rock 1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 1277063833161784486}
   - component: {fileID: 1751122597897788915}
   - component: {fileID: 7945142799388371859}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 6705879388559146700}
   - component: {fileID: 1236268232079445250}
   - component: {fileID: 2104304301449115644}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.007 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 256757080826091043}
   - component: {fileID: 5068677607102588729}
   - component: {fileID: 8978949034958852235}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.005 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +863,7 @@ GameObject:
   - component: {fileID: 5201901971743725784}
   - component: {fileID: 8315200527251410123}
   - component: {fileID: 6243506129588097145}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -967,7 +967,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2675468786966232678}
   - component: {fileID: 6419268370891633193}
-  m_Layer: 0
+  - component: {fileID: 2066322302661170362}
+  - component: {fileID: 6722643542659647401}
+  m_Layer: 7
   m_Name: Greenhouse_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,6 +1005,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0.5
+  isPlaced: 0
+--- !u!64 &2066322302661170362
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5839100578812734607}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!54 &6722643542659647401
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5839100578812734607}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6140892264470820415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,7 +1067,7 @@ GameObject:
   - component: {fileID: 5760025424654398615}
   - component: {fileID: 6594850125928252102}
   - component: {fileID: 943177341057813506}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.002 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1121,7 +1173,7 @@ GameObject:
   - component: {fileID: 8296120388276000140}
   - component: {fileID: 5182271961115702204}
   - component: {fileID: 920901526339254212}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1227,7 +1279,7 @@ GameObject:
   - component: {fileID: 3466231918709297688}
   - component: {fileID: 6972733840247400760}
   - component: {fileID: 8235096822188746629}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grass 3 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1333,7 +1385,7 @@ GameObject:
   - component: {fileID: 4359556329300764792}
   - component: {fileID: 5603240270352362676}
   - component: {fileID: 847610766868536971}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rock 1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1439,7 +1491,7 @@ GameObject:
   - component: {fileID: 5079339107268564038}
   - component: {fileID: 148042553296965278}
   - component: {fileID: 5917127597301110195}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.042 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1542,9 +1594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9040827028722166261}
-  - component: {fileID: 6052277481419233035}
-  - component: {fileID: 1481050584649935639}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1582,55 +1632,6 @@ Transform:
   - {fileID: 1830997196656482906}
   m_Father: {fileID: 2675468786966232678}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
---- !u!64 &6052277481419233035
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8256113389433105096}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
---- !u!54 &1481050584649935639
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8256113389433105096}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &9203098656946663364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,7 +1644,7 @@ GameObject:
   - component: {fileID: 4473641479530404144}
   - component: {fileID: 4868091311565710233}
   - component: {fileID: 3862038263803543355}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.005 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1745,6 +1746,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9040827028722166261}
     m_Modifications:
+    - target: {fileID: 28469383557077414, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 760773625941418012, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -1805,6 +1810,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: House
       objectReference: {fileID: 0}
+    - target: {fileID: 2599734436437372587, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734675229894421053, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4866757197529451275, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1825,21 +1838,45 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5868743597773793011, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7206918386124092754, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
       propertyPath: m_Size.x
       value: 2.0520873
       objectReference: {fileID: 0}
     - target: {fileID: 7206918386124092754, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7580343
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206918386124092754, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
       propertyPath: m_Size.z
-      value: 1.9732761
+      value: 1.867728
       objectReference: {fileID: 0}
     - target: {fileID: 7206918386124092754, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
       propertyPath: m_Center.x
       value: 0.009681702
       objectReference: {fileID: 0}
     - target: {fileID: 7206918386124092754, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
+      propertyPath: m_Center.y
+      value: -0.120982885
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206918386124092754, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
       propertyPath: m_Center.z
-      value: -0.1602335
+      value: -0.17575538
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401493776907643130, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 6419268370891633193}
+    - target: {fileID: 7789587973859180062, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738578822091991488, guid: 8c167a3b287610b4582d620d71a3ba8a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

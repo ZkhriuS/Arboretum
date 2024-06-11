@@ -22,6 +22,10 @@ public class ObjectPlacementSystem : PlacementSystem
             Vector3Int gridPosition = grid.WorldToCell(touchPosition);
             touchIndicator.transform.position = grid.CellToWorld(gridPosition);
         }
+        else
+        {
+            inputManager.ResetMapPosition();
+        }
     }
 
     public void SetTownObject(GameObject townObject)

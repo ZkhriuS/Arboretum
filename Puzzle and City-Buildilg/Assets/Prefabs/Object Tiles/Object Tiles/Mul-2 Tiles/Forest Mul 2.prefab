@@ -149,12 +149,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighboursFree:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 0}
+    - Key: 1
+      Value: {fileID: 0}
+    - Key: 2
+      Value: {fileID: 0}
+    - Key: 5
+      Value: {fileID: 0}
+    - Key: 4
+      Value: {fileID: 0}
+    - Key: 3
+      Value: {fileID: 0}
 --- !u!114 &4163134601909360985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +176,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrounded: 0
   type: forest
+  renderer: {fileID: -846854479520114486}
   bonus: 2
   typeBonus: 42
   error: {r: 1, g: 0, b: 0, a: 0.78431374}
   correct: {r: 0, g: 1, b: 0, a: 0.78431374}
+  oldSort: 4
+  newSort: 1
