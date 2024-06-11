@@ -70,13 +70,14 @@ public class TradeManager : MonoBehaviour
         TextMeshProUGUI temp = resources[(int) trade.GetDemand()];
         int value = int.Parse(temp.text);
         if (value < trade.GetDemandCount()) return false;
-        ResourcesClick resourcePanelDemand = temp.gameObject.GetComponentInParent<ResourcesClick>();
+        ResourcesClick resourcePanelDemand = temp.gameObject.GetComponentInParent<ResourcesClick>(true);
+        Debug.Log(resourcePanelDemand);
         value -= trade.GetDemandCount();
         temp.text = value.ToString();
         if (CurrentClick.type.Equals(resourcePanelDemand.type)) 
             currentResource.text = temp.text;
         temp = resources[(int) trade.GetOffer()];
-        ResourcesClick resourcePanelOffer = temp.gameObject.GetComponentInParent<ResourcesClick>();
+        ResourcesClick resourcePanelOffer = temp.gameObject.GetComponentInParent<ResourcesClick>(true);
         value = int.Parse(temp.text);
         value += trade.GetOfferCount();
         temp.text = value.ToString();
