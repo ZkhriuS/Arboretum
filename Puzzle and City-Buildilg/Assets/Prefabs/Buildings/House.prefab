@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyGenerator: {fileID: 5126291374799965636}
+  controller: {fileID: 0}
   timerDisplay: {fileID: 2065591601226003191}
   moneyDisplay: {fileID: 5057453347407123041}
 --- !u!114 &8461145118035907107
@@ -165,6 +166,10 @@ PrefabInstance:
     - target: {fileID: 119541983575705548, guid: c24153f83376ba24597cad7adb62528a, type: 3}
       propertyPath: m_Name
       value: GUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 945447105636689348, guid: c24153f83376ba24597cad7adb62528a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3330605249316582105, guid: c24153f83376ba24597cad7adb62528a, type: 3}
       propertyPath: m_AnchorMax.x
